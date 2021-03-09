@@ -55,7 +55,7 @@ var loadState = function(game){
            this.load.image('life','assets/GUI/life.png'); // Play.js
            this.load.image('coconut','assets/coconut.png'); // fruit.js
           
-           if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+          if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             // true for mobile device
             this.load.image('leftBtn','assets/GUI/left.png');  // Play.js;
             this.load.image('rightBtn','assets/GUI/right.png');  // Play.js)
