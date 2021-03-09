@@ -23,6 +23,8 @@ var player = function(game){
             this.yOrig = this.player.y;
             this.yChange = 0;
             this.cameraYMin = 99999;
+
+            this.leftArrowBool = game.
         },
         
         handleBounce: function(i){
@@ -49,6 +51,31 @@ var player = function(game){
                 this.player.body.velocity.x = -150;
             }
             else if(this.cursor.right.isDown){
+                this.player.frame = 3;   
+                this.player.body.velocity.x = 150;
+            }
+            else{
+                this.player.frame = 1;
+                this.player.body.velocity.x = 0;
+            }
+            
+            // track the maximum amount that hero has traveled
+            var t1 = Math.abs(this.player.y);     
+            this.yChange = Math.max(Math.abs(t1+this.yOrig)+2000);
+        },
+
+        handleMobileMovement: function(leftBool, rightBool){
+            this.standing = this.player.body.touching.down || this.player.body.blocked.down;
+            
+            if(this.jumpButton.isDown && this.standing==true){
+                this.player.frame = 0;
+                this.player.body.velocity.y = -500;
+            }
+            else if (leftBool){
+                this.player.frame = 4;
+                this.player.body.velocity.x = -150;
+            }
+            else if (rightBool){
                 this.player.frame = 3;   
                 this.player.body.velocity.x = 150;
             }
