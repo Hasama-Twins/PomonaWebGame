@@ -11,10 +11,10 @@ var playState = function(game){
     this.life2;
     this.life3;
     this.lifeptr = 0; // life sprite handler
-    this.leftButton = null; // for mobile web game
-    this.rightButton = null; // for mobile web game
-    this.rightDuration = 0; // for mobile web game
-    this.leftDuration = 0; // for mobile web game
+    this.leftButton = null; // for mobile web game only
+    this.rightButton = null; // for mobile web game only
+    this.rightDuration = 0; // for mobile web game only
+    this.leftDuration = 0; // for mobile web game only
 };
 
     playState.prototype = {
@@ -68,11 +68,11 @@ var playState = function(game){
 
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             // true for mobile device
-            this.leftButton = this.game.add.button(50,game.height-25,'leftBtn',this.handleLeft,this);
+            this.leftButton = this.game.add.button(50,game.height-50,'leftBtn',this.handleLeft,this);
             this.leftButton.anchor.setTo(0.5,0.5);
             this.leftButton.scale.setTo(0.3,0.3);
             this.leftButton.fixedToCamera = true;
-            this.rightButton = this.game.add.button(game.width-50,game.height-25,'rightBtn',this.handleRight,this);
+            this.rightButton = this.game.add.button(game.width-50,game.height-50,'rightBtn',this.handleRight,this);
             this.rightButton.anchor.setTo(0.5,0.5);
             this.rightButton.scale.setTo(0.3,0.3);
             this.rightButton.fixedToCamera = true;
@@ -89,8 +89,7 @@ var playState = function(game){
                 if (leftDuration > 0) {
                     this.jolly.handleMobileMovement(true, false);
                     this.leftDuration -= 1
-                }
-                else if (this.rightDuration > 0) {
+                } else if (this.rightDuration > 0) {
                     this.jolly.handleMobileMovement(false, true);
                     this.rightDuration -= 1
                 } else {
@@ -191,8 +190,8 @@ var playState = function(game){
             this.pauseButton.kill();
             this.lifeptr = 0;
             if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-            this.leftButton.destroy();
-            this.rightButton.destroy();
+                this.leftButton.destroy();
+                this.rightButton.destroy();
             }
         },
 
@@ -242,7 +241,7 @@ var playState = function(game){
 
         },
 
-        handleLeft: function() {
+        handleLeft: function(){
             if (this.rightDuration == 0) {
                 this.leftDuration = 250
             }
