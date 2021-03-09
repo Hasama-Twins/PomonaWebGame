@@ -1,4 +1,4 @@
-# Jolly Jumper !!
+# Pomona Web Game (based off open source game Jolly Jumper)!!
 
 **Jolly Jumper (version - 1.0.1)** is infinite jumping style game, highly inspired by Doodle jump.
 This game is made in **Phaserjs** and it also open-sourced you can fork it here jolly-jumper. 
