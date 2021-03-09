@@ -22,7 +22,7 @@ leaderboardState.prototype = {
         function setNameAndYear(){
             function playerName() {
                 var name = prompt("Please enter your name: ");
-                if (name == "") {
+                if (name == "" || name == null) {
                     playerName();
                 } else{
                     localStorage.setItem("playerName", name);
@@ -32,7 +32,7 @@ leaderboardState.prototype = {
         
             function gradYear() {
                 var year = prompt("Please enter your graduation year: ");
-                if (year == "" || isNaN(year)) {
+                if (year == "" || isNaN(year) || year == null) {
                     gradYear(); 
                 } else {
                     localStorage.setItem("gradYear", year);
@@ -44,10 +44,18 @@ leaderboardState.prototype = {
         if (localStorage.getItem("playerName") === null) {
             setNameAndYear()
         } else {
-            var changeData = prompt("Update name or graduation year? (Y/N): ");
-            if (changeData.toUpperCase() == "Y") {
+
+            function changeDataRequired() {
+                var changeData = prompt("Update name or graduation year? (Y/N): ");v
+                changeData = changeData.toUpperCase();
+                if (changeData != "Y" || changeData != "N"){
+                    changeDataRequired()
+                } else {
+                if (changeData.toUpperCase() == "Y") {
                 setNameAndYear()
+                }
             }
+            changeDataRequired()
         }
           
 
