@@ -54,10 +54,10 @@ leaderboardState.prototype = {
                 if (changeData.toUpperCase() == "Y") {
                 setNameAndYear()
                 }
-            }
-            changeDataRequired()
-        }
-          
+                }
+            } 
+        changeDataRequired(); 
+    }
 
         this.buildInterface();
         
