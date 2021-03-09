@@ -24,7 +24,6 @@ var player = function(game){
             this.yChange = 0;
             this.cameraYMin = 99999;
 
-            this.leftArrowBool = game.
         },
         
         handleBounce: function(i){
