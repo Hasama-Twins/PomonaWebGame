@@ -46,10 +46,9 @@ leaderboardState.prototype = {
         } else {
 
             function changeDataRequired() {
-                var changeData = prompt("Update name or graduation year? (Y/N): ");v
-                changeData = changeData.toUpperCase();
-                if (changeData != "Y" || changeData != "N"){
-                    changeDataRequired()
+                var changeData = prompt("Update name or graduation year? (Y/N): ");
+                if (changeData == "" || changeData == null || (changeData.toUpperCase() != "Y" && changeData.toUpperCase() != "N")) {
+                    changeDataRequired();
                 } else {
                 if (changeData.toUpperCase() == "Y") {
                 setNameAndYear()
