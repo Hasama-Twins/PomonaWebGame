@@ -18,7 +18,39 @@ leaderboardState.prototype = {
         console.log('Leaderboard State');
         this.game.stage.backgroundColor = '#373F6C';
         game.global.menuBgSound.stop();
+
+        function setNameAndYear(){
+            function playerName() {
+                var name = prompt("Please enter your name: ");
+                if (name == "") {
+                    playerName();
+                } else{
+                    localStorage.setItem("playerName", name);
+                }
+            }
+            playerName();
         
+            function gradYear() {
+                var year = prompt("Please enter your graduation year: ");
+                if (year == "") {
+                    gradYear(); 
+                } else {
+                    localStorage.setItem("gradYear", year);
+                }
+            } gradYear();
+                   
+        }
+
+        if (localStorage.getItem("playerName") === null) {
+            setNameAndYear()
+        } else {
+            var changeData = prompt("Would you like to change name or graduation year (Y/N): ");
+            if (changeData.toUpperCase() == "Y") {
+                setNameAndYear()
+            }
+        }
+          
+
         this.buildInterface();
         
         this.showScore();
@@ -79,6 +111,9 @@ this.game.state.start('Menu');
         showScore: function(){
         var playerScore;
              
+            var name = localStorage.getItem("playerName")
+            var year = localStorage.getItem("gradYear")
+            saveScore(name, game.global.score, year )
             if(localStorage.getItem('highscore')===null){
                 localStorage.setItem('highscore',game.global.score);
             }
