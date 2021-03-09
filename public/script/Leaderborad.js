@@ -32,7 +32,7 @@ leaderboardState.prototype = {
         
             function gradYear() {
                 var year = prompt("Please enter your graduation year: ");
-                if (year == "") {
+                if (year == "" || isNaN(year)) {
                     gradYear(); 
                 } else {
                     localStorage.setItem("gradYear", year);
@@ -44,7 +44,7 @@ leaderboardState.prototype = {
         if (localStorage.getItem("playerName") === null) {
             setNameAndYear()
         } else {
-            var changeData = prompt("Would you like to change name or graduation year (Y/N): ");
+            var changeData = prompt("Update name or graduation year? (Y/N): ");
             if (changeData.toUpperCase() == "Y") {
                 setNameAndYear()
             }
