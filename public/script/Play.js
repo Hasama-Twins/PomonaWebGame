@@ -13,8 +13,8 @@ var playState = function(game){
     this.lifeptr = 0; // life sprite handler
     this.leftButton = null; // for mobile web game
     this.rightButton = null; // for mobile web game
-    this.leftBool = false;
-    this.rightBool = false;
+    this.rightDuration = 0; // for mobile web game
+    this.leftDuration = 0; // for mobile web game
 };
 
     playState.prototype = {
@@ -86,9 +86,16 @@ var playState = function(game){
             this.physics.arcade.collide(this.jolly.player,this.platforms.pltGroup,this.playerVsPlatform,null,this);
             
             if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-                this.jolly.handleMovement(this.leftBool, this.rightBool);
-                this.leftBool = false
-                this.rightBool = false
+                if (leftDuration > 0) {
+                    this.jolly.handleMobileMovement(true, false);
+                    this.leftDuration -= 1
+                }
+                else if (this.rightDuration > 0) {
+                    this.jolly.handleMobileMovement(false, true);
+                    this.rightDuration -= 1
+                } else {
+                    this.jolly.handleMobileMovement(false, false);
+                }
             } else {
                 this.jolly.handleMovement();
             }
@@ -183,8 +190,8 @@ var playState = function(game){
             this.gameScore.scoreLabel.kill();
             this.pauseButton.kill();
             this.lifeptr = 0;
-            this.leftButton.kill();
-            this.rightButton.kill();
+            this.leftButton.destroy();
+            this.rightButton.destroy();
         },
 
          gameOver: function(){
@@ -234,11 +241,15 @@ var playState = function(game){
         },
 
         handleLeft: function() {
-            this.leftBool = true
+            if (this.rightDuration == 0) {
+                this.leftDuration = 250
+            }
         },
 
         handleRight: function() {
-            this.rightBool = true
+            if (this.leftDuration == 0) {
+                this.rightDuration = 250
+            }
         },
 
         render: function(){
