@@ -1,8 +1,7 @@
 var leaderboardState = function(game){
     this.game = game;
     this.retriveData = 'Player';
-    this.restartBtn;
-    this.menuBtn;
+    this.nextBtn;
     
     this.style = { font: "bold 34px Arial", fill: "#ffffff"}; // highscore header
     this.textStyle = { font: "bold 22px Arial", fill: "#ffffff" }; // highscore and your score
@@ -102,13 +101,13 @@ leaderboardState.prototype = {
 	    scoreText = this.add.text(5, 5, 'Scoreboard',this.styleTextH); 
 		scoreText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);		    
         
-        this.menuBtn = game.add.button(300,game.height-40,'menuBtn',function(){
+        this.nextBtn = game.add.button(300,game.height-40,'nextBtn',function(){
         this.game.state.start('classBoard');
         },this);
 
-        this.menuBtn.anchor.setTo(0.5,0.5);
-        this.menuBtn.scale.setTo(0.8,0.8);
-        this.menuBtn.input.useHandCursor = true;
+        this.nextBtn.anchor.setTo(0.5,0.5);
+        this.nextBtn.scale.setTo(0.5,0.5);
+        this.nextBtn.input.useHandCursor = true;
         
     },
      

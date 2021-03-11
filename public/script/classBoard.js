@@ -75,7 +75,7 @@ classState.prototype = {
         },this);
 
         this.menuBtn.anchor.setTo(0.5,0.5);
-        this.menuBtn.scale.setTo(0.8,0.8);
+        this.menuBtn.scale.setTo(0.5,0.5);
         this.menuBtn.input.useHandCursor = true;
         
     },
