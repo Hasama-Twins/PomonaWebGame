@@ -7,7 +7,7 @@ var loadState = function(game){
       preload: function(){
           console.log(game.state.getCurrentState());
 
-          var Font = "40px Comic Sans MS";
+          var Font = "40px Arial";
             this.loadText = this.add.text(this.world.centerX,this.world.centerY,'loading ',{font: Font, fill: '#99CC0E', stroke: '#55B50D', strokeThickness: 3});
           this.loadText.anchor.setTo(0.5,0.5);
           
@@ -54,18 +54,13 @@ var loadState = function(game){
            this.load.image('resumeBtn','assets/GUI/resume.png'); // Play.js
            this.load.image('life','assets/GUI/life.png'); // Play.js
            this.load.image('coconut','assets/coconut.png'); // fruit.js
+           this.load.image('credits-screen','assets/GUI/credits-screen.png'); // credit.js 
           
           if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             // true for mobile device
             this.load.image('leftBtn','assets/GUI/left.png');  // Play.js;
             this.load.image('rightBtn','assets/GUI/right.png');  // Play.js)
            }
-
-          //credit
-          this.load.image('social-link','assets/credit/credit-social-link.png');
-          this.load.image('code','assets/credit/code.png');
-          this.load.image('devcredit','assets/credit/devcredit.png');
-          this.load.image('shohan','assets/credit/shohan.png');
           
           // how to play
           this.load.image('how-to-play','assets/how-to-play.png');
