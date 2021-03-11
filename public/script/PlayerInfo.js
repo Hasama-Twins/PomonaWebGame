@@ -80,7 +80,7 @@ playerInfoState.prototype = {
 
     showLeaveButton: function(){
 
-        playerInfoState.leaveBtn = game.add.button(this.world.centerX-30,game.height-100,'resumeBtn', this.checkInfo.bind(newinfo), this);
+        playerInfoState.leaveBtn = game.add.button(this.world.centerX-30,game.height-100,'resumeBtn', this.checkInfo.bind(), this);
         playerInfoState.leaveBtn.scale.setTo(0.5,0.5);
         playerInfoState.leaveBtn.input.useHandCursor = true;
     },
