@@ -71,11 +71,11 @@ var leftDuration = 0; // for mobile web game only
             // true for mobile device
             this.leftButton = this.game.add.button(50,game.height-50,'leftBtn', this.handleLeft,this);
             this.leftButton.anchor.setTo(0.5,0.5);
-            this.leftButton.scale.setTo(0.3,0.3);
+            this.leftButton.scale.setTo(1,1);
             this.leftButton.fixedToCamera = true;
             this.rightButton = this.game.add.button(game.width-50,game.height-50,'rightBtn', this.handleRight,this);
             this.rightButton.anchor.setTo(0.5,0.5);
-            this.rightButton.scale.setTo(0.3,0.3);
+            this.rightButton.scale.setTo(1,1);
             this.rightButton.fixedToCamera = true;
             
             }
