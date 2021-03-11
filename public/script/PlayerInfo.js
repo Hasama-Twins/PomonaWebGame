@@ -46,13 +46,14 @@ playerInfoState.prototype = {
             font: '18px Arial',
             fill: '#20438f',
             fontWeight: 'bold',
-            width: 300,
+            width: 250,
             padding: 6,
             borderWidth: 1,
             borderColor: '#000',
             borderRadius: 4,
             placeHolder: 'Name',
             min: 2,
+            max: 20,
             zoom: false,
             type: PhaserInput.InputType.text
         });

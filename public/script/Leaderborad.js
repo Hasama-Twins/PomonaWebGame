@@ -8,7 +8,7 @@ var leaderboardState = function(game){
     this.textStyle3 = { font: "bold 16px Arial", fill: "#ffffff" }; // leaderboard headers
     this.styleTextH = { font: "bold 58px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
     this.styleTextH2 = { font: "bold 25px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" }; 
-    this.textStyle2 = { font: "15px Arial", fill: "#ffffff"}; // leaderboard 1-5 fonts
+    this.textStyle2 = { font: "14px Arial", fill: "#ffffff"}; // leaderboard 1-5 fonts
     
 };
 
@@ -95,7 +95,7 @@ leaderboardState.prototype = {
             currentScore.anchor.setTo(0.5,0.5);
 
 
-            var header = this.add.text(30,265,'Name                      Grad Year    Score',this.textStyle3);
+            var header = this.add.text(30,270,'Name                      Grad Year    Score',this.textStyle3);
             header.anchor.setTo(0,0.5);
 
 
@@ -105,7 +105,7 @@ leaderboardState.prototype = {
             
             result = await getTopScores();
 
-            var y = 290
+            var y = 295
             for (let i = 0; i < 5; ++i)
 	        {
             if (i < result.length) {
@@ -118,12 +118,12 @@ leaderboardState.prototype = {
             topNameLabel.anchor.setTo(0, 0.5); }
 
             if (topYear != null) {
-            var topYearLabel = this1.add.text(200,y,topYear,this1.textStyle2);
+            var topYearLabel = this1.add.text(190,y,topYear,this1.textStyle2);
             topYearLabel.anchor.setTo(0, 0.5);
             }
 
             if (topScore != null) {
-            var topScoreLabel = this1.add.text(270,y,topScore,this1.textStyle2);
+            var topScoreLabel = this1.add.text(265,y,topScore,this1.textStyle2);
             topScoreLabel.anchor.setTo(0, 0.5); }
 
             } else{
