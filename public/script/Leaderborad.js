@@ -4,11 +4,11 @@ var leaderboardState = function(game){
     this.restartBtn;
     this.menuBtn;
     
-    this.style = { font: "bold 34px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // highscore header
-    this.textStyle = { font: "15px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // highscore and your score
+    this.style = { font: "bold 34px Arial", fill: "#ffffff"}; // highscore header
+    this.textStyle = { font: "bold 20px Arial", fill: "#ffffff" }; // highscore and your score
     this.styleTextH = { font: "bold 58px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
     this.styleTextH2 = { font: "bold 25px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
-    this.textStyle2 = { font: "15px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // cloud storage score
+    this.textStyle2 = { font: "20px Arial", fill: "#ffffff"}; // cloud storage score
     
 };
 
@@ -98,7 +98,7 @@ leaderboardState.prototype = {
 	    barBottom.drawRect(0, this.game.height - 80, this.game.width, 80);
 	    barBottom.endFill();
 
-	    scoreText = this.add.text(5, 5, 'Highscore',this.styleTextH); 
+	    scoreText = this.add.text(5, 5, 'Scoreboard',this.styleTextH); 
 		scoreText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);		    
                    
         this.restartBtn = game.add.button(60,game.height-40,'restartBtn',function(){
@@ -132,12 +132,14 @@ leaderboardState.prototype = {
                   localStorage.setItem('highscore',game.global.score);        
             }
                     
-                playerScore = this.add.text(this.world.centerX,180,'Highscore - '+localStorage.getItem('highscore'),this.textStyle);
-                playerScore.anchor.setTo(0.5,0.5);
+                playerScore = this.add.text(this.world.centerX,180,'Your Highscore - '+localStorage.getItem('highscore'),this.textStyle);
+                playerScore.anchor.setTo(0.5,1.1);
             
-            var currentScore = this.add.text(this.world.centerX,250,'Your Score - '+game.global.score,this.textStyle);
+            var currentScore = this.add.text(this.world.centerX,200,'Your New Score - '+game.global.score,this.textStyle);
+            currentScore.anchor.setTo(0.5,1);
+            
+            var currentScore = this.add.text(this.world.centerX,250,'Pomona Leaderboard',this.textStyle);
             currentScore.anchor.setTo(0.5);
-            
 
             create(this)
 
@@ -152,7 +154,7 @@ leaderboardState.prototype = {
 
 
             console.log(topName,topScore,2)
-            var topScoreLabel = this1.add.text(this1.world.centerX,250,'Top Score - '+topName+" - "+topScore,this1.textStyle2);
+            var topScoreLabel = this1.add.text(this1.world.centerX,250,'1st - '+topName+" - "+topScore,this1.textStyle2);
             topScoreLabel.anchor.setTo(0.5,-0.5);
             }
             
