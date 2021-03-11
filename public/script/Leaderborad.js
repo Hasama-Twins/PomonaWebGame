@@ -6,9 +6,10 @@ var leaderboardState = function(game){
     
     this.style = { font: "bold 34px Arial", fill: "#ffffff"}; // highscore header
     this.textStyle = { font: "bold 20px Arial", fill: "#ffffff" }; // highscore and your score
+    this.textStyle3 = { font: "bold 16px Arial", fill: "#ffffff" }; // leaderboard headers
     this.styleTextH = { font: "bold 58px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
-    this.styleTextH2 = { font: "bold 25px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
-    this.textStyle2 = { font: "20px Arial", fill: "#ffffff"}; // cloud storage score
+    this.styleTextH2 = { font: "bold 25px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" }; 
+    this.textStyle2 = { font: "16px Arial", fill: "#ffffff"}; // leaderboard 1-5 fonts
     
 };
 
@@ -138,8 +139,13 @@ leaderboardState.prototype = {
             var currentScore = this.add.text(this.world.centerX,190,'Your New Score - '+game.global.score,this.textStyle);
             currentScore.anchor.setTo(0.5,0.5);
             
-            var currentScore = this.add.text(25,250,'Pomona Leaderboard',this.textStyle);
+            var currentScore = this.add.text(15,250,'Pomona Leaderboard',this.textStyle);
             currentScore.anchor.setTo(0,0.5);
+
+
+            var header = this.add.text(30,275,'Name                      Grad Year    Score',this.textStyle3);
+            header.anchor.setTo(0,0.5);
+
 
             create(this)
 
@@ -148,16 +154,26 @@ leaderboardState.prototype = {
             result = await getTopScores();
 
             console.log(result)
-            var topName = result[0].name;
-            var topScore =  String(result[0].score);
-            console.log(topName,topScore,"1"); 
+            var y = 300
+            for (let i = 0; i < 5; ++i)
+	        {
+            if (i < result.length) {
+            var topName = result[i].name;
+            var topScore =  String(result[i].score);
+            var topYear = result[i].year
 
+            var topNameLabel = this1.add.text(15,y,String(i+1)+". "+topName,this1.textStyle2);
+            topNameLabel.anchor.setTo(0, 0.5);
 
-            console.log(topName,topScore,2)
-            var topScoreLabel = this1.add.text(25,275,'1st - '+topName+" - "+topScore,this1.textStyle2);
+            var topYearLabel = this1.add.text(200,y,topYear,this1.textStyle2);
+            topYearLabel.anchor.setTo(0, 0.5);
+
+            var topScoreLabel = this1.add.text(270,y,topScore,this1.textStyle2);
             topScoreLabel.anchor.setTo(0, 0.5);
-            }
-            
+
+            } y += 25
+        }
     
         }
+    }
 }

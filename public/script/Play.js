@@ -192,8 +192,8 @@ var leftDuration = 0; // for mobile web game only
             this.pauseButton.kill();
             this.lifeptr = 0;
             if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-                this.leftButton.destroy();
-                this.rightButton.destroy();
+                this.leftButton.kill();
+                this.rightButton.kill();
             }
         },
 
