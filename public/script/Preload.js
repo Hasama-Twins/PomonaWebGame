@@ -8,7 +8,7 @@ var loadState = function(game){
           console.log(game.state.getCurrentState());
 
           var Font = "40px Arial";
-            this.loadText = this.add.text(this.world.centerX,this.world.centerY,'loading ',{font: Font, fill: '#99CC0E', stroke: '#55B50D', strokeThickness: 3});
+            this.loadText = this.add.text(this.world.centerX,this.world.centerY,'loading ',{font: Font, fill: '#f7941d', stroke: '#ffffff', strokeThickness: 3});
           this.loadText.anchor.setTo(0.5,0.5);
           
           /*
