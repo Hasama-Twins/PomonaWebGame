@@ -132,14 +132,14 @@ leaderboardState.prototype = {
                   localStorage.setItem('highscore',game.global.score);        
             }
                     
-                playerScore = this.add.text(this.world.centerX,180,'Your Highscore - '+localStorage.getItem('highscore'),this.textStyle);
-                playerScore.anchor.setTo(0.5,1.1);
+                playerScore = this.add.text(this.world.centerX,150,'Your Highscore - '+localStorage.getItem('highscore'),this.textStyle);
+                playerScore.anchor.setTo(0.5,0.5);
             
-            var currentScore = this.add.text(this.world.centerX,200,'Your New Score - '+game.global.score,this.textStyle);
-            currentScore.anchor.setTo(0.5,1);
+            var currentScore = this.add.text(this.world.centerX,190,'Your New Score - '+game.global.score,this.textStyle);
+            currentScore.anchor.setTo(0.5,0.5);
             
-            var currentScore = this.add.text(this.world.centerX,250,'Pomona Leaderboard',this.textStyle);
-            currentScore.anchor.setTo(0.5);
+            var currentScore = this.add.text(25,250,'Pomona Leaderboard',this.textStyle);
+            currentScore.anchor.setTo(0,0.5);
 
             create(this)
 
@@ -154,8 +154,8 @@ leaderboardState.prototype = {
 
 
             console.log(topName,topScore,2)
-            var topScoreLabel = this1.add.text(this1.world.centerX,250,'1st - '+topName+" - "+topScore,this1.textStyle2);
-            topScoreLabel.anchor.setTo(0.5,-0.5);
+            var topScoreLabel = this1.add.text(25,275,'1st - '+topName+" - "+topScore,this1.textStyle2);
+            topScoreLabel.anchor.setTo(0, 0.5);
             }
             
     
