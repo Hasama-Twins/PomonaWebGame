@@ -1,4 +1,4 @@
-var leaderboardState = function(game){
+var classState = function(game){
     this.game = game;
     this.retriveData = 'Player';
     this.restartBtn;
@@ -14,52 +14,12 @@ var leaderboardState = function(game){
 };
 
 
-leaderboardState.prototype = {
+classState.prototype = {
     
     create: function(){
-        console.log('Leaderboard State');
+        console.log('Class State');
         this.game.stage.backgroundColor = '#373F6C';
         game.global.menuBgSound.stop();
-        
-
-        function setNameAndYear(){
-            function playerName() {
-                var name = prompt("Please enter your name: ");
-                if (name == "" || name == null) {
-                    playerName();
-                } else{
-                    localStorage.setItem("playerName", name);
-                }
-            }
-            playerName();
-        
-            function gradYear() {
-                var year = prompt("Please enter your graduation year: ");
-                if (year == "" || isNaN(year) || year == null) {
-                    gradYear(); 
-                } else {
-                    localStorage.setItem("gradYear", year);
-                }
-            } gradYear();
-                   
-        }
-
-        if (localStorage.getItem("playerName") === null) {
-            //setNameAndYear()
-        } else {
-
-            function changeDataRequired() {
-                var changeData = prompt("Update name or graduation year? (Y/N): ");
-                if (changeData == "" || changeData == null || (changeData.toUpperCase() != "Y" && changeData.toUpperCase() != "N")) {
-                    changeDataRequired();
-                } else {
-                if (changeData.toUpperCase() == "Y") {
-                setNameAndYear()
-                } 
-                }
-            } 
-        //changeDataRequired(); 
-    }
 
         this.buildInterface();
         
@@ -101,9 +61,17 @@ leaderboardState.prototype = {
 
 	    scoreText = this.add.text(5, 5, 'Scoreboard',this.styleTextH); 
 		scoreText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);		    
+                   
+        this.restartBtn = game.add.button(60,game.height-40,'restartBtn',function(){
+        this.game.state.start('Play');
+        },this);
+
+        this.restartBtn.anchor.setTo(0.5,0.5);
+        this.restartBtn.scale.setTo(0.5,0.5);
+        this.restartBtn.input.useHandCursor = true;
         
         this.menuBtn = game.add.button(300,game.height-40,'menuBtn',function(){
-        this.game.state.start('classBoard');
+        this.game.state.start('Menu');
         },this);
 
         this.menuBtn.anchor.setTo(0.5,0.5);
@@ -131,7 +99,7 @@ leaderboardState.prototype = {
             var currentScore = this.add.text(this.world.centerX,190,'Your New Score - '+game.global.score,this.textStyle);
             currentScore.anchor.setTo(0.5,0.5);
             
-            var currentScore = this.add.text(this.world.centerX,240,'Pomona Leaderboard',this.textStyle);
+            var currentScore = this.add.text(this.world.centerX,240,"Class of "+year+" Leaderboard",this.textStyle);
             currentScore.anchor.setTo(0.5,0.5);
 
 
@@ -143,7 +111,7 @@ leaderboardState.prototype = {
 
             async function create(this1) {
             
-            result = await getTopScores();
+            result = await getClassScores(year);
 
             console.log(result)
             var y = 290
