@@ -19,46 +19,7 @@ leaderboardState.prototype = {
         console.log('Leaderboard State');
         this.game.stage.backgroundColor = '#373F6C';
         game.global.menuBgSound.stop();
-        
 
-        function setNameAndYear(){
-            function playerName() {
-                var name = prompt("Please enter your name: ");
-                if (name == "" || name == null) {
-                    playerName();
-                } else{
-                    localStorage.setItem("playerName", name);
-                }
-            }
-            playerName();
-        
-            function gradYear() {
-                var year = prompt("Please enter your graduation year: ");
-                if (year == "" || isNaN(year) || year == null) {
-                    gradYear(); 
-                } else {
-                    localStorage.setItem("gradYear", year);
-                }
-            } gradYear();
-                   
-        }
-
-        if (localStorage.getItem("playerName") === null) {
-            //setNameAndYear()
-        } else {
-
-            function changeDataRequired() {
-                var changeData = prompt("Update name or graduation year? (Y/N): ");
-                if (changeData == "" || changeData == null || (changeData.toUpperCase() != "Y" && changeData.toUpperCase() != "N")) {
-                    changeDataRequired();
-                } else {
-                if (changeData.toUpperCase() == "Y") {
-                setNameAndYear()
-                } 
-                }
-            } 
-        //changeDataRequired(); 
-    }
 
         this.buildInterface();
         

@@ -56,6 +56,8 @@ var loadState = function(game){
            this.load.image('life','assets/GUI/life.png'); // Play.js
            this.load.image('coconut','assets/coconut.png'); // fruit.js
            this.load.image('credits-screen','assets/GUI/credits-screen.png'); // credit.js 
+           this.load.image('checkyes','assets/GUI/checkyes.jpeg'); // PlayerInfo.js 
+           this.load.image('crossno','assets/GUI/crossno.jpeg'); // PlayerInfo.js 
           
           if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             // true for mobile device
