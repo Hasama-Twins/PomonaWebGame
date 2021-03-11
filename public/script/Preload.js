@@ -7,7 +7,7 @@ var loadState = function(game){
       preload: function(){
           console.log(game.state.getCurrentState());
 
-          var Font = "40px Comic Sans MS";
+          var Font = "40px Arial";
             this.loadText = this.add.text(this.world.centerX,this.world.centerY,'loading ',{font: Font, fill: '#99CC0E', stroke: '#55B50D', strokeThickness: 3});
           this.loadText.anchor.setTo(0.5,0.5);
           
