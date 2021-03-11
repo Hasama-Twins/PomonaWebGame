@@ -32,7 +32,14 @@ function saveScore(name,score,year){
 
 async function getTopScores() {
     scores = db.collection("scores")
-    const snapshot = await scores.orderBy("score", "desc").limit(1).get()
+    const snapshot = await scores.orderBy("score", "desc").limit(5).get()
+    return snapshot.docs.map(doc => doc.data());
+      
+}
+
+async function getClassScores(year) {
+    scores = db.collection("scores")
+    const snapshot = await scores.where("year", "==", year).orderBy("score", "desc").limit(5).get()
     return snapshot.docs.map(doc => doc.data());
       
 }

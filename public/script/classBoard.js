@@ -1,7 +1,8 @@
-var leaderboardState = function(game){
+var classState = function(game){
     this.game = game;
     this.retriveData = 'Player';
-    this.nextBtn;
+    this.restartBtn;
+    this.menuBtn;
     
     this.style = { font: "bold 34px Arial", fill: "#ffffff"}; // highscore header
     this.textStyle = { font: "bold 22px Arial", fill: "#ffffff" }; // highscore and your score
@@ -13,13 +14,12 @@ var leaderboardState = function(game){
 };
 
 
-leaderboardState.prototype = {
+classState.prototype = {
     
     create: function(){
-        console.log('Leaderboard State');
+        console.log('Class State');
         this.game.stage.backgroundColor = '#373F6C';
         game.global.menuBgSound.stop();
-
 
         this.buildInterface();
         
@@ -61,14 +61,22 @@ leaderboardState.prototype = {
 
 	    scoreText = this.add.text(5, 5, 'Scoreboard',this.styleTextH); 
 		scoreText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);		    
-        
-        this.nextBtn = game.add.button(300,game.height-40,'nextBtn',function(){
-        this.game.state.start('classBoard');
+                   
+        this.restartBtn = game.add.button(60,game.height-40,'restartBtn',function(){
+        this.game.state.start('Play');
         },this);
 
-        this.nextBtn.anchor.setTo(0.5,0.5);
-        this.nextBtn.scale.setTo(0.6,0.6);
-        this.nextBtn.input.useHandCursor = true;
+        this.restartBtn.anchor.setTo(0.5,0.5);
+        this.restartBtn.scale.setTo(0.6,0.6);
+        this.restartBtn.input.useHandCursor = true;
+        
+        this.menuBtn = game.add.button(300,game.height-40,'menuBtn',function(){
+        this.game.state.start('Menu');
+        },this);
+
+        this.menuBtn.anchor.setTo(0.5,0.5);
+        this.menuBtn.scale.setTo(0.6,0.6);
+        this.menuBtn.input.useHandCursor = true;
         
     },
      
@@ -91,7 +99,7 @@ leaderboardState.prototype = {
             var currentScore = this.add.text(this.world.centerX,190,'Your New Score - '+game.global.score,this.textStyle);
             currentScore.anchor.setTo(0.5,0.5);
             
-            var currentScore = this.add.text(this.world.centerX,240,'Pomona Leaderboard',this.textStyle);
+            var currentScore = this.add.text(this.world.centerX,240,"Class of "+year+" Leaderboard",this.textStyle);
             currentScore.anchor.setTo(0.5,0.5);
 
 
@@ -103,8 +111,9 @@ leaderboardState.prototype = {
 
             async function create(this1) {
             
-            result = await getTopScores();
-
+            result = await getClassScores(year);
+            
+            if (year != null) {
             var y = 290
             for (let i = 0; i < 5; ++i)
 	        {
@@ -112,25 +121,25 @@ leaderboardState.prototype = {
             var topName = result[i].name;
             var topScore =  String(result[i].score);
             var topYear = result[i].year
-            
+
             if (topName != null) {
             var topNameLabel = this1.add.text(15,y,String(i+1)+". "+topName,this1.textStyle2);
             topNameLabel.anchor.setTo(0, 0.5); }
 
             if (topYear != null) {
             var topYearLabel = this1.add.text(200,y,topYear,this1.textStyle2);
-            topYearLabel.anchor.setTo(0, 0.5);
-            }
+            topYearLabel.anchor.setTo(0, 0.5); }
 
             if (topScore != null) {
             var topScoreLabel = this1.add.text(270,y,topScore,this1.textStyle2);
             topScoreLabel.anchor.setTo(0, 0.5); }
 
             } else{
-                var topNameLabel = this1.add.text(15,y,String(i+1)+". N/A");
+            var topNameLabel = this1.add.text(15,y,String(i+1)+". N/A");
             topNameLabel.anchor.setTo(0, 0.5);
             }
-            y += 25 
+            y += 25
+        }
         }
     
         }

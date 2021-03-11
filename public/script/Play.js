@@ -64,7 +64,7 @@ var leftDuration = 0; // for mobile web game only
             // pause button
             this.pauseButton = this.game.add.button(25,25,'pauseBtn',this.handlePause,this);
             this.pauseButton.anchor.setTo(0.5,0.5);
-            this.pauseButton.scale.setTo(0.4,0.4);
+            this.pauseButton.scale.setTo(0.5,0.5);
             this.pauseButton.fixedToCamera = true;
 
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
@@ -192,8 +192,8 @@ var leftDuration = 0; // for mobile web game only
             this.pauseButton.kill();
             this.lifeptr = 0;
             if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-                this.leftButton.destroy();
-                this.rightButton.destroy();
+                this.leftButton.kill();
+                this.rightButton.kill();
             }
         },
 

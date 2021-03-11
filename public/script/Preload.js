@@ -44,12 +44,13 @@ var loadState = function(game){
            this.load.image('setting','assets/GUI/setting.png');    
            this.load.image('credit','assets/GUI/credit.png');    
            this.load.image('howtoplay','assets/GUI/howToPlay.png');      
-           this.load.spritesheet('sound-sprite','assets/GUI/sound.png',70,60); 
+           this.load.spritesheet('sound-sprite','assets/GUI/soundSheet.png',50,50); 
            this.load.image('title-bg','assets/GUI/title_bg.png');
            this.load.image('menu-title','assets/GUI/menu-title.png');
            this.load.image('pauseBtn','assets/GUI/pause.png');  // Play.js
            this.load.image('restartBtn','assets/GUI/restart.png');  // leaderboard.js
-           this.load.image('menuBtn','assets/GUI/b_More.png');  // leaderboard.js
+           this.load.image('menuBtn','assets/GUI/home.png');  // leaderboard.js
+           this.load.image('nextBtn','assets/GUI/next.png');
            this.load.image('backward','assets/GUI/backward.png');// credit.js
            this.load.image('resumeBtn','assets/GUI/resume.png'); // Play.js
            this.load.image('life','assets/GUI/life.png'); // Play.js
