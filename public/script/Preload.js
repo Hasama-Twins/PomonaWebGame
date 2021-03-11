@@ -37,7 +37,7 @@ var loadState = function(game){
           // load utility
           this.load.spritesheet('gems','assets/gems-sprite.png',45,42); // fruit.js && play.js
           // load player
-           this.load.spritesheet('jolly','assets/player/monkey.png',63,78);
+           this.load.spritesheet('jolly','assets/player/transpcecil.png',68,78);
           
           // load GUI
            this.load.image('play','assets/GUI/play.png');    

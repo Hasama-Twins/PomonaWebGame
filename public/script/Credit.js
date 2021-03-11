@@ -6,7 +6,7 @@ var creditState = function(game){
         
         create: function(){
             console.log(game.state.getCurrentState());
-            this.stage.backgroundColor = '#F1FF87';
+            this.stage.backgroundColor = '#f7941d';
             this.buildInterface();
             game.global.menuBgSound.stop();
             
@@ -17,31 +17,31 @@ var creditState = function(game){
                             
 	//User Inteface
 		var bar = this.add.graphics();
-	    bar.beginFill(0xfae013);
+	    bar.beginFill(0xf7941d);
 	    bar.drawRect(0, 0, this.game.width, 40);
 	    bar.endFill();
 
-	    bar.beginFill(0x49B8E7, 1);
+	    bar.beginFill(0x20438f, 1);
 	    bar.drawRect(0, 40, this.game.width, 10);
 	    bar.endFill();        
 
 	    bar = this.add.graphics();
-	    bar.beginFill(0x6ac8ed, 1);
+	    bar.beginFill(0xfbc98e, 1);
 	    bar.drawRect(0, 50, this.game.width, 10);
 	    bar.endFill();        
 
 		var barBottom = this.add.graphics();
-	    barBottom.beginFill(0x6ac8ed, 1);
+	    barBottom.beginFill(0xfbc98e, 1);
 	    barBottom.drawRect(0, this.game.height - 100, this.game.width, 95);
 	    barBottom.endFill();        
 
 	    barBottom = this.add.graphics();
-	    barBottom.beginFill(0x49B8E7, 1);
+	    barBottom.beginFill(0x20438f, 1);
 	    barBottom.drawRect(0, this.game.height - 90, this.game.width, 90);
 	    barBottom.endFill();    
 
 	    barBottom = this.add.graphics();
-	    barBottom.beginFill(0xD3F939, 1);
+	    barBottom.beginFill(0xD8fa1c7, 1);
 	    barBottom.drawRect(0, this.game.height - 80, this.game.width, 80);
 	    barBottom.endFill();
                 

@@ -16,7 +16,7 @@ var Score = function(game){
         createScore: function(){
             
             var scoreFont = "50px Arial";
-            this.scoreLabel = game.add.text(game.world.centerX,game.height-100,'0',{font: scoreFont, fill: '#39d179', stroke: '#ffffff', strokeThickness: 6});
+            this.scoreLabel = game.add.text(game.world.centerX,game.height-100,'0',{font: scoreFont, fill: '#20438f', stroke: '#ffffff', strokeThickness: 6});
             this.scoreLabel.anchor.setTo(0.5,0.5);
             this.scoreLabel.fixedToCamera = true;
             this.scoreLabel.align = 'center';
