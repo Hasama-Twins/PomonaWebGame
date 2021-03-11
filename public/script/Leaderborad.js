@@ -8,6 +8,7 @@ var leaderboardState = function(game){
     this.textStyle = { font: "28px Comic Sans MS",stroke: '#ffffff', strokeThickness: 4, fill: "#BE5446", tabs: [ 100, 300 ] };
     this.styleTextH = { font: "bold 58px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
     this.styleTextH2 = { font: "bold 36px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+    this.textStyle2 = { font: "12px Comic Sans MS",stroke: '#ffffff', strokeThickness: 2, fill: "#BE5446", tabs: [ 100, 300 ] };
     
 };
 
@@ -18,6 +19,7 @@ leaderboardState.prototype = {
         console.log('Leaderboard State');
         this.game.stage.backgroundColor = '#373F6C';
         game.global.menuBgSound.stop();
+        
 
         function setNameAndYear(){
             function playerName() {
@@ -52,7 +54,7 @@ leaderboardState.prototype = {
                 } else {
                 if (changeData.toUpperCase() == "Y") {
                 setNameAndYear()
-                }
+                } 
                 }
             } 
         changeDataRequired(); 
@@ -99,16 +101,18 @@ leaderboardState.prototype = {
 	    scoreText = this.add.text(5, 5, 'Highscore',this.styleTextH); 
 		scoreText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);		    
                    
-this.restartBtn = game.add.button(60,game.height-40,'restartBtn',function(){
-this.game.state.start('Play');
-},this);
+        this.restartBtn = game.add.button(60,game.height-40,'restartBtn',function(){
+        this.game.state.start('Play');
+        },this);
+
         this.restartBtn.anchor.setTo(0.5,0.5);
         this.restartBtn.scale.setTo(0.5,0.5);
         this.restartBtn.input.useHandCursor = true;
         
         this.menuBtn = game.add.button(300,game.height-40,'menuBtn',function(){
-this.game.state.start('Menu');
-},this);
+        this.game.state.start('Menu');
+        },this);
+
         this.menuBtn.anchor.setTo(0.5,0.5);
         this.menuBtn.scale.setTo(0.8,0.8);
         this.menuBtn.input.useHandCursor = true;
@@ -117,7 +121,7 @@ this.game.state.start('Menu');
      
         showScore: function(){
         var playerScore;
-             
+
             var name = localStorage.getItem("playerName")
             var year = localStorage.getItem("gradYear")
             saveScore(name, game.global.score, year )
@@ -131,11 +135,35 @@ this.game.state.start('Menu');
                 playerScore = this.add.text(this.world.centerX,180,'Highscore - '+localStorage.getItem('highscore'),this.textStyle);
                 playerScore.anchor.setTo(0.5,0.5);
             
-     var currentScore = this.add.text(this.world.centerX,250,'Your Score - '+game.global.score,this.textStyle);
+            var currentScore = this.add.text(this.world.centerX,250,'Your Score - '+game.global.score,this.textStyle);
             currentScore.anchor.setTo(0.5);
             
             
-        } // end showScore
+
+            // getTopScores().then(function(result) {
+            // topName = result[0].name
+            // topScore = String(result[0].score)
+            // console.log(topName,topScore,"1");
+            // })
+            
+
+            create(this)
+
+            async function create(this1) {
+            
+            result = await getTopScores();
+
+            console.log(result)
+            var topName = result[0].name;
+            var topScore =  String(result[0].score);
+            console.log(topName,topScore,"1"); 
+
+
+            console.log(topName,topScore,2)
+            var topScoreLabel = this1.add.text(this1.world.centerX,250,'Top Score - '+topName+" - "+topScore,this1.textStyle2);
+            topScoreLabel.anchor.setTo(0.5,-0.5);
+            }
+            
     
-    
+        }
 }
