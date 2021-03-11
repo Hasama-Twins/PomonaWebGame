@@ -138,14 +138,6 @@ leaderboardState.prototype = {
             var currentScore = this.add.text(this.world.centerX,250,'Your Score - '+game.global.score,this.textStyle);
             currentScore.anchor.setTo(0.5);
             
-            
-
-            // getTopScores().then(function(result) {
-            // topName = result[0].name
-            // topScore = String(result[0].score)
-            // console.log(topName,topScore,"1");
-            // })
-            
 
             create(this)
 
