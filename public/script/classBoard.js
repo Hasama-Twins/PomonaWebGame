@@ -112,7 +112,8 @@ classState.prototype = {
             async function create(this1) {
             
             result = await getClassScores(year);
-
+            
+            if (year != null) {
             var y = 290
             for (let i = 0; i < 5; ++i)
 	        {
@@ -138,6 +139,7 @@ classState.prototype = {
             topNameLabel.anchor.setTo(0, 0.5);
             }
             y += 25
+        }
         }
     
         }
