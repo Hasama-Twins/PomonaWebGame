@@ -5,11 +5,11 @@ var classState = function(game){
     this.menuBtn;
     
     this.style = { font: "bold 34px Arial", fill: "#ffffff"}; // highscore header
-    this.textStyle = { font: "bold 20px Arial", fill: "#ffffff" }; // highscore and your score
+    this.textStyle = { font: "bold 22px Arial", fill: "#ffffff" }; // highscore and your score
     this.textStyle3 = { font: "bold 16px Arial", fill: "#ffffff" }; // leaderboard headers
     this.styleTextH = { font: "bold 58px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
     this.styleTextH2 = { font: "bold 25px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" }; 
-    this.textStyle2 = { font: "16px Arial", fill: "#ffffff"}; // leaderboard 1-5 fonts
+    this.textStyle2 = { font: "15px Arial", fill: "#ffffff"}; // leaderboard 1-5 fonts
     
 };
 
@@ -113,7 +113,6 @@ classState.prototype = {
             
             result = await getClassScores(year);
 
-            console.log(result)
             var y = 290
             for (let i = 0; i < 5; ++i)
 	        {
@@ -131,7 +130,11 @@ classState.prototype = {
             var topScoreLabel = this1.add.text(270,y,topScore,this1.textStyle2);
             topScoreLabel.anchor.setTo(0, 0.5);
 
-            } y += 25
+            } else{
+            var topNameLabel = this1.add.text(15,y,String(i+1)+". N/A");
+            topNameLabel.anchor.setTo(0, 0.5);
+            }
+            y += 25
         }
     
         }
