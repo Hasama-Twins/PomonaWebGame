@@ -67,7 +67,7 @@ classState.prototype = {
         },this);
 
         this.restartBtn.anchor.setTo(0.5,0.5);
-        this.restartBtn.scale.setTo(0.5,0.5);
+        this.restartBtn.scale.setTo(0.6,0.6);
         this.restartBtn.input.useHandCursor = true;
         
         this.menuBtn = game.add.button(300,game.height-40,'menuBtn',function(){
@@ -75,7 +75,7 @@ classState.prototype = {
         },this);
 
         this.menuBtn.anchor.setTo(0.5,0.5);
-        this.menuBtn.scale.setTo(0.5,0.5);
+        this.menuBtn.scale.setTo(0.6,0.6);
         this.menuBtn.input.useHandCursor = true;
         
     },

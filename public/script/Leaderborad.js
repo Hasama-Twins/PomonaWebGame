@@ -106,7 +106,7 @@ leaderboardState.prototype = {
         },this);
 
         this.nextBtn.anchor.setTo(0.5,0.5);
-        this.nextBtn.scale.setTo(0.5,0.5);
+        this.nextBtn.scale.setTo(0.6,0.6);
         this.nextBtn.input.useHandCursor = true;
         
     },
