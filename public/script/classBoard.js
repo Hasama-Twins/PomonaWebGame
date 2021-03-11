@@ -85,7 +85,7 @@ classState.prototype = {
 
             var name = localStorage.getItem("playerName")
             var year = localStorage.getItem("gradYear")
-            saveScore(name, game.global.score, year )
+            
             if(localStorage.getItem('highscore')===null){
                 localStorage.setItem('highscore',game.global.score);
             }
@@ -135,7 +135,7 @@ classState.prototype = {
             topScoreLabel.anchor.setTo(0, 0.5); }
 
             } else{
-            var topNameLabel = this1.add.text(15,y,String(i+1)+". N/A");
+            var topNameLabel = this1.add.text(15,y,String(i+1)+". N/A",this1.textStyle2);
             topNameLabel.anchor.setTo(0, 0.5);
             }
             y += 25

@@ -127,7 +127,7 @@ leaderboardState.prototype = {
             topScoreLabel.anchor.setTo(0, 0.5); }
 
             } else{
-                var topNameLabel = this1.add.text(15,y,String(i+1)+". N/A");
+                var topNameLabel = this1.add.text(15,y,String(i+1)+". N/A",this1.textStyle2);
             topNameLabel.anchor.setTo(0, 0.5);
             }
             y += 25 

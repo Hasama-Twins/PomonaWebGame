@@ -27,44 +27,48 @@ playerInfoState.prototype = {
         if (localStorage.getItem("playerName") === null) {
             this.selectYes()
         } else {
-            var changeInfo = this.add.text(this.world.centerX,100,'Do you want to change your',this.textStyle);
+            var changeInfo = this.add.text(this.world.centerX,50,'Do you want to change your',this.textStyle);
             changeInfo.anchor.setTo(0.5,0.5);
-            var changeInfo = this.add.text(this.world.centerX,130,'name or graduation year?',this.textStyle);
+            var changeInfo = this.add.text(this.world.centerX,100,'name or graduation year?',this.textStyle);
             changeInfo.anchor.setTo(0.5,0.5);
-            this.checkYes = this.game.add.button(this.world.centerX-100,200,'checkyes', this.selectYes,this);
+            this.checkYes = this.game.add.button(this.world.centerX-50,150,'checkyes', this.selectYes,this);
             this.checkYes.anchor.setTo(0.5,0.5);
-            this.checkYes.scale.setTo(0.14,0.14);
-            this.crossNo = this.game.add.button(this.world.centerX+100,200,'crossno', this.selectNo,this);
+            this.checkYes.scale.setTo(0.1,0.1);
+            this.crossNo = this.game.add.button(this.world.centerX+50,150,'crossno', this.selectNo,this);
             this.crossNo.anchor.setTo(0.5,0.5);
-            this.crossNo.scale.setTo(0.1,0.1);
+            this.crossNo.scale.setTo(0.08,0.08);
         }
               
     },
 
     setNameAndYear: function(){
-        playerInfoState.playerName = game.add.inputField(10, 300, {
+        playerInfoState.playerName = game.add.inputField(10, 190, {
             font: '18px Arial',
             fill: '#20438f',
             fontWeight: 'bold',
             width: 300,
-            padding: 8,
+            padding: 6,
             borderWidth: 1,
             borderColor: '#000',
-            borderRadius: 6,
+            borderRadius: 4,
             placeHolder: 'Name',
+            min: 2,
+            zoom: false,
             type: PhaserInput.InputType.text
         });
-        playerInfoState.playerYear = game.add.inputField(10, 350, {
+        playerInfoState.playerYear = game.add.inputField(10, 230, {
             font: '18px Arial',
             fill: '#20438f',
             fontWeight: 'bold',
             width: 150,
-            padding: 8,
+            padding: 6,
             borderWidth: 1,
             borderColor: '#000',
-            borderRadius: 6,
+            borderRadius: 4,
             placeHolder: 'Graduation Year',
+            min: 4,
             max: 4,
+            zoom: false,
             type: PhaserInput.InputType.text
             });
 
@@ -80,16 +84,16 @@ playerInfoState.prototype = {
 
     showLeaveButton: function(){
 
-        playerInfoState.leaveBtn = game.add.button(this.world.centerX-30,game.height-100,'resumeBtn', this.checkInfo.bind(), this);
-        playerInfoState.leaveBtn.scale.setTo(0.5,0.5);
+        playerInfoState.leaveBtn = game.add.button(this.world.centerX-30,game.height-200,'leaveBtn', this.checkInfo , this);
+        playerInfoState.leaveBtn.scale.setTo(0.8,0.8);
         playerInfoState.leaveBtn.input.useHandCursor = true;
     },
 
     checkInfo: function(){
-            if (playerInfoState.playerName.value == "" || isNaN(playerInfoState.playerYear.value) || playerInfoState.playerYear.value == "") {
+            if (playerInfoState.playerName.value.length < 2 || isNaN(playerInfoState.playerYear.value) || playerInfoState.playerYear.value.length != 4) {
             } else {
-                localStorage.setItem('playerName',playerInfoState.playerName);
-                localStorage.setItem('gradYear',playerInfoState.playerYear);   
+                localStorage.setItem('playerName',playerInfoState.playerName.value);
+                localStorage.setItem('gradYear',playerInfoState.playerYear.value);   
                 game.state.start('LeaderBoard');
         }
         
