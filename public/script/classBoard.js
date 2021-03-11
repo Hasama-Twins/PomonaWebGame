@@ -121,14 +121,17 @@ classState.prototype = {
             var topScore =  String(result[i].score);
             var topYear = result[i].year
 
+            if (topName != null) {
             var topNameLabel = this1.add.text(15,y,String(i+1)+". "+topName,this1.textStyle2);
-            topNameLabel.anchor.setTo(0, 0.5);
+            topNameLabel.anchor.setTo(0, 0.5); }
 
+            if (topYear != null) {
             var topYearLabel = this1.add.text(200,y,topYear,this1.textStyle2);
-            topYearLabel.anchor.setTo(0, 0.5);
+            topYearLabel.anchor.setTo(0, 0.5); }
 
+            if (topScore != null) {
             var topScoreLabel = this1.add.text(270,y,topScore,this1.textStyle2);
-            topScoreLabel.anchor.setTo(0, 0.5);
+            topScoreLabel.anchor.setTo(0, 0.5); }
 
             } else{
             var topNameLabel = this1.add.text(15,y,String(i+1)+". N/A");
