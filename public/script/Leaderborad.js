@@ -4,11 +4,11 @@ var leaderboardState = function(game){
     this.restartBtn;
     this.menuBtn;
     
-    this.style = { font: "bold 34px Arial", fill: "#fff", tabs: [ 100, 300 ] };
-    this.textStyle = { font: "28px Comic Sans MS",stroke: '#ffffff', strokeThickness: 4, fill: "#BE5446", tabs: [ 100, 300 ] };
-    this.styleTextH = { font: "bold 58px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-    this.styleTextH2 = { font: "bold 36px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-    this.textStyle2 = { font: "12px Comic Sans MS",stroke: '#ffffff', strokeThickness: 2, fill: "#BE5446", tabs: [ 100, 300 ] };
+    this.style = { font: "bold 34px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // highscore header
+    this.textStyle = { font: "15px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // highscore and your score
+    this.styleTextH = { font: "bold 58px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
+    this.styleTextH2 = { font: "bold 25px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
+    this.textStyle2 = { font: "15px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // cloud storage score
     
 };
 
