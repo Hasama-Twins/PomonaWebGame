@@ -199,7 +199,7 @@ var leftDuration = 0; // for mobile web game only
 
          gameOver: function(){
             this.killAll();
-            this.state.start('LeaderBoard');
+            this.state.start('PlayerInfo');
         },
 
         playerDead: function(){
@@ -216,12 +216,12 @@ var leftDuration = 0; // for mobile web game only
             if(flag == true){
                 game.global.deadSound.onStop.add(function(){
                     this.killAll();
-                    game.state.start('LeaderBoard');
+                    game.state.start('PlayerInfo');
                 },this);
             }
             else{
                 this.killAll();
-                game.state.start('LeaderBoard');
+                game.state.start('PlayerInfo');
             }
         },
 

@@ -11,6 +11,7 @@ window.onload = function(){
     game.state.add("Credit", creditState);
     game.state.add("Play", playState);
     game.state.add("LeaderBoard",leaderboardState);
+    game.state.add("PlayerInfo", playerInfoState);
     
     //define global var
     game.global = {
