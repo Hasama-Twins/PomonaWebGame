@@ -22,27 +22,66 @@ playerInfoState.prototype = {
         this.game.stage.backgroundColor = '#373F6C';
         game.global.menuBgSound.stop();
         game.add.plugin(PhaserInput.Plugin);
-                   
+        this.buildInterface()       
 
         if (localStorage.getItem("playerName") === null) {
             this.selectYes()
+            var changeInfo = this.add.text(this.world.centerX,130,'Enter your information below',this.styleTextH2);
+            changeInfo.anchor.setTo(0.5,0.5);
         } else {
-            var changeInfo = this.add.text(this.world.centerX,50,'Do you want to change your',this.textStyle);
-            changeInfo.anchor.setTo(0.5,0.5);
-            var changeInfo = this.add.text(this.world.centerX,100,'name or graduation year?',this.textStyle);
-            changeInfo.anchor.setTo(0.5,0.5);
-            this.checkYes = this.game.add.button(this.world.centerX-50,150,'checkyes', this.selectYes,this);
+            var changeInfo1 = this.add.text(this.world.centerX,130,'Do you want to change your',this.styleTextH2);
+            changeInfo1.anchor.setTo(0.5,0.5);
+            var changeInfo2 = this.add.text(this.world.centerX,150,'name or graduation year?',this.styleTextH2);
+            changeInfo2.anchor.setTo(0.5,0.5);
+            this.checkYes = this.game.add.button(this.world.centerX-50,190,'checkyes', this.selectYes,this);
             this.checkYes.anchor.setTo(0.5,0.5);
             this.checkYes.scale.setTo(0.1,0.1);
-            this.crossNo = this.game.add.button(this.world.centerX+50,150,'crossno', this.selectNo,this);
+            this.crossNo = this.game.add.button(this.world.centerX+50,190,'crossno', this.selectNo,this);
             this.crossNo.anchor.setTo(0.5,0.5);
             this.crossNo.scale.setTo(0.08,0.08);
         }
               
     },
 
+    buildInterface: function(){
+        
+        //User Inteface
+            var bar = this.add.graphics();
+            bar.beginFill(0xf7941d);
+            bar.drawRect(0, 0, this.game.width, 75);
+            bar.endFill();
+    
+            bar.beginFill(0x20438f, 1);
+            bar.drawRect(0, 75, this.game.width, 10);
+            bar.endFill();        
+    
+            bar = this.add.graphics();
+            bar.beginFill(0xfbc98e, 1);
+            bar.drawRect(0, 85, this.game.width, 10);
+            bar.endFill();        
+    
+            var barBottom = this.add.graphics();
+            barBottom.beginFill(0xfbc98e, 1);
+            barBottom.drawRect(0, this.game.height - 100, this.game.width, 95);
+            barBottom.endFill();        
+    
+            barBottom = this.add.graphics();
+            barBottom.beginFill(0x20438f, 1);
+            barBottom.drawRect(0, this.game.height - 90, this.game.width, 90);
+            barBottom.endFill();    
+    
+            barBottom = this.add.graphics();
+            barBottom.beginFill(0xD8fa1c7, 1);
+            barBottom.drawRect(0, this.game.height - 80, this.game.width, 80);
+            barBottom.endFill();
+    
+            scoreText = this.add.text(5, 5, 'Player Info',this.styleTextH); 
+            scoreText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);		    
+            
+        },
+
     setNameAndYear: function(){
-        playerInfoState.playerName = game.add.inputField(10, 190, {
+        playerInfoState.playerName = game.add.inputField(10, 220, {
             font: '18px Arial',
             fill: '#20438f',
             fontWeight: 'bold',
@@ -57,7 +96,7 @@ playerInfoState.prototype = {
             zoom: false,
             type: PhaserInput.InputType.text
         });
-        playerInfoState.playerYear = game.add.inputField(10, 230, {
+        playerInfoState.playerYear = game.add.inputField(10, 260, {
             font: '18px Arial',
             fill: '#20438f',
             fontWeight: 'bold',
@@ -85,9 +124,11 @@ playerInfoState.prototype = {
 
     showLeaveButton: function(){
 
-        playerInfoState.leaveBtn = game.add.button(this.world.centerX-30,game.height-200,'leaveBtn', this.checkInfo , this);
-        playerInfoState.leaveBtn.scale.setTo(0.8,0.8);
+        playerInfoState.leaveBtn = game.add.button(300,game.height-40,'leaveBtn', this.checkInfo , this);
         playerInfoState.leaveBtn.input.useHandCursor = true;
+        playerInfoState.leaveBtn.anchor.setTo(0.5,0.5);
+        playerInfoState.leaveBtn.scale.setTo(1.3,1.3);
+
     },
 
     checkInfo: function(){
