@@ -35,10 +35,10 @@ playerInfoState.prototype = {
             changeInfo2.anchor.setTo(0.5,0.5);
             this.checkYes = this.game.add.button(this.world.centerX-50,190,'checkyes', this.selectYes,this);
             this.checkYes.anchor.setTo(0.5,0.5);
-            this.checkYes.scale.setTo(0.1,0.1);
+            //this.checkYes.scale.setTo(0.1,0.1);
             this.crossNo = this.game.add.button(this.world.centerX+50,190,'crossno', this.selectNo,this);
             this.crossNo.anchor.setTo(0.5,0.5);
-            this.crossNo.scale.setTo(0.08,0.08);
+            //this.crossNo.scale.setTo(0.08,0.08);
         }
               
     },
