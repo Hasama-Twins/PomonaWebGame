@@ -59,6 +59,7 @@ var loadState = function(game){
            this.load.image('checkyes','assets/GUI/yes.png'); // PlayerInfo.js 
            this.load.image('crossno','assets/GUI/quit_.png'); // PlayerInfo.js
            this.load.image('leaveBtn','assets/GUI/leave.png'); // PlayerInfo.js  
+           this.load.image('verifyBtn','assets/GUI/verify.png'); // Verify.js 
           
           if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             // true for mobile device
@@ -88,7 +89,7 @@ var loadState = function(game){
             
           this.sound.setDecodedCallback([ 'gemSound', 'menuBg', 'jumpSound','deadSound' ], function(){
                 console.log('sounds are ready');
-                this.state.start('Menu');
+                this.state.start('Verify');
           }, this);
       },
       

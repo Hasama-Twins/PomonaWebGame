@@ -4,6 +4,7 @@ window.onload = function(){
     //game = new Phaser.Game(window.innerWidth,window.innerHeight,Phaser.CANVAS,'gameContainer');
 				
 	//Add all states
+    game.state.add("Verify", verifyState);
     game.state.add("Boot", bootState);
     game.state.add("Preload", loadState);
     game.state.add("Menu", menuState);
