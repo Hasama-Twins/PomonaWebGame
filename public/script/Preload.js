@@ -82,7 +82,10 @@ var loadState = function(game){
           
           this.load.audio('cocoSound',['sounds/dap.mp3','sounds/dap.wav','sounds/dap.ogg','sounds/dap.m4a'],true);
           
-          
+          //labels
+          this.load.image('changeNameLabel','assets/labels/changeNameLabel.png');
+          this.load.image('NameYearScore','assets/labels/NameYearScoreLabel.png');
+      
       },
       
       create: function(){

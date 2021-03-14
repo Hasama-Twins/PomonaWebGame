@@ -2,6 +2,7 @@ var leaderboardState = function(game){
     this.game = game;
     this.retriveData = 'Player';
     this.nextBtn;
+    this.headers = null;
     
     this.style = { font: "bold 34px Arial", fill: "#ffffff"}; // highscore header
     this.textStyle = { font: "bold 22px Arial", fill: "#ffffff" }; // highscore and your score
@@ -95,8 +96,10 @@ leaderboardState.prototype = {
             currentScore.anchor.setTo(0.5,0.5);
 
 
-            var header = this.add.text(30,270,'Name                      Grad Year    Score',this.textStyle3);
-            header.anchor.setTo(0,0.5);
+            
+           this.headers= game.add.sprite(28,270,"NameYearScore");
+            this.headers.anchor.setTo(0,0.5);
+            this.headers.scale.setTo(0.8,0.8)
 
 
             create(this)
@@ -123,7 +126,7 @@ leaderboardState.prototype = {
             }
 
             if (topScore != null) {
-            var topScoreLabel = this1.add.text(265,y,topScore,this1.textStyle2);
+            var topScoreLabel = this1.add.text(247,y,topScore,this1.textStyle2);
             topScoreLabel.anchor.setTo(0, 0.5); }
 
             } else{
