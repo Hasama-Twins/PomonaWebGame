@@ -33,12 +33,8 @@ var fruits = function(game){
             this.fruitsGroup.createMultiple(1,'fruit3',null,false);
             this.fruitsGroup.createMultiple(1,'fruit0',null,false);       
             this.fruitsGroup.createMultiple(1,'fruit2',null,false);
-            this.fruitsGroup.createMultiple(2,'fruit1',null,false);
-            this.fruitsGroup.createMultiple(1,'fruit3',null,false);
-            this.fruitsGroup.createMultiple(2,'fruit2',null,false);
             this.fruitsGroup.createMultiple(1,'fruit4',null,false);
-            this.fruitsGroup.createMultiple(1,'fruit3',null,false);
-            this.fruitsGroup.createMultiple(1,'fruit4',null,false);
+
             
             this.fruitsGroup.callAll('anchor.setTo','anchor',0.5,0.5);
             this.fruitsGroup.setAll('body.immovable',true);
@@ -65,7 +61,7 @@ var fruits = function(game){
             this.coconutGroup = this.game.add.physicsGroup(Phaser.Physics.ARCADE);
             this.coconutGroup.createMultiple(5,'coconut',false);
             this.coconutGroup.callAll('body.setSize','body',35,40,5,2);
-            this.coconutGroup.callAll('body.gravity.set','body.gravity',0,380);
+            this.coconutGroup.callAll('body.gravity.set','body.gravity',0,250);
             this.coconutGroup.callAll('body.bounce.set','body.bounce',0.6);
             this.coconutGroup.setAll('body.friction','body',0.5);
             this.coconutGroup.setAll('body.mass','body',2);
