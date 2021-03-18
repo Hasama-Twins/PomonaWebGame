@@ -28,14 +28,25 @@ var loadState = function(game){
           this.load.image('cactus','assets/cactus.png');
           this.load.image('platform','assets/platform.png');
           
-          //load fruties
-          this.load.image('fruit0','assets/fruits/banana_01.png');
-          this.load.image('fruit1','assets/fruits/grape.png');
-          this.load.image('fruit2','assets/fruits/pineapple.png');
-          this.load.image('fruit3','assets/fruits/watermelon.png');
-          this.load.image('fruit4','assets/fruits/cherry.png');
-          // load utility
-          this.load.spritesheet('gems','assets/gems-sprite.png',45,42); // fruit.js && play.js
+          //load milkshakes
+          this.load.image('shake0','assets/milkshakes/milkshake_1.png');
+          this.load.image('shake1','assets/milkshakes/milkshake_2.png');
+          this.load.image('shake2','assets/milkshakes/milkshake_3.png');
+        
+          //load books
+          this.load.image('book0','assets/books/yellowbook.png');
+          this.load.image('book1','assets/books/greenbook.png');
+          this.load.image('book2','assets/books/redbook.png');
+          this.load.image('coconut','assets/coconut.png'); // fruit.js
+
+          // load coins
+          this.load.image('coin0','assets/coins/coin_logo_1.png');
+          this.load.image('coin1','assets/coins/coin_logo_2.png');
+          this.load.image('coin2','assets/coins/coin_logo_3.png');
+          this.load.image('coin3','assets/coins/coin_P_1.png');
+          this.load.image('coin4','assets/coins/coin_P_2.png');
+          this.load.image('coin5','assets/coins/coin_P_3.png');// fruit.js && play.js
+          
           // load player
            this.load.spritesheet('jolly','assets/player/transpcecil.png',68,78);
           
@@ -54,7 +65,6 @@ var loadState = function(game){
            this.load.image('backward','assets/GUI/backward.png');// credit.js
            this.load.image('resumeBtn','assets/GUI/resume.png'); // Play.js
            this.load.image('life','assets/GUI/life.png'); // Play.js
-           this.load.image('coconut','assets/coconut.png'); // fruit.js
            this.load.image('credits-screen','assets/GUI/credits-screen.png'); // credit.js 
            this.load.image('checkyes','assets/GUI/yes.png'); // PlayerInfo.js 
            this.load.image('crossno','assets/GUI/quit_.png'); // PlayerInfo.js
