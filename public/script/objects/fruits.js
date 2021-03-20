@@ -30,8 +30,6 @@ var fruits = function(game){
             this.shakesGroup.createMultiple(1,'shake0',null,false);
             this.shakesGroup.createMultiple(1,'shake2',null,false);
             this.shakesGroup.createMultiple(1,'shake1',null,false);
-            this.shakesGroup.createMultiple(1,'shake0',null,false);
-            this.shakesGroup.createMultiple(1,'shake2',null,false);
             this.shakesGroup.createMultiple(1,'shake0',null,false);       
             this.shakesGroup.createMultiple(1,'shake2',null,false);
             this.shakesGroup.createMultiple(2,'shake1',null,false);
