@@ -25,7 +25,8 @@ var fruits = function(game){
             var shakesArray = new Array('shake0','shake1','shake2');
             this.shakesGroup = game.add.physicsGroup(Phaser.Physics.ARCADE);
 
-            // total = 15
+            // total = 10
+
             this.shakesGroup.createMultiple(1,'shake0',null,false);
             this.shakesGroup.createMultiple(1,'shake2',null,false);
             this.shakesGroup.createMultiple(1,'shake1',null,false);
@@ -35,14 +36,11 @@ var fruits = function(game){
             this.shakesGroup.createMultiple(1,'shake2',null,false);
             this.shakesGroup.createMultiple(2,'shake1',null,false);
             this.shakesGroup.createMultiple(1,'shake0',null,false);
-            this.shakesGroup.createMultiple(2,'shake2',null,false);
-            this.shakesGroup.createMultiple(1,'shake1',null,false);
-            this.shakesGroup.createMultiple(1,'shake0',null,false);
-            this.shakesGroup.createMultiple(1,'shake2',null,false);
-            
+
             this.shakesGroup.callAll('anchor.setTo','anchor',0.5,0.5);
             this.shakesGroup.setAll('body.immovable',true);
             this.shakesGroup.callAll('body.setSize','body',25,25,0,2);
+
             
             this.fruitSound = game.add.audio('fruitGulp',1,false);
             
@@ -77,7 +75,7 @@ var fruits = function(game){
     
             //this.booksGroup.createMultiple(5,'coconut',false);
             this.booksGroup.callAll('body.setSize','body',35,40,5,2);
-            this.booksGroup.callAll('body.gravity.set','body.gravity',0,380);
+            this.booksGroup.callAll('body.gravity.set','body.gravity',0,250);
             this.booksGroup.callAll('body.bounce.set','body.bounce',0.6);
             this.booksGroup.setAll('body.friction','body',0.5);
             this.booksGroup.setAll('body.mass','body',2);

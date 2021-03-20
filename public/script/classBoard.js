@@ -3,6 +3,7 @@ var classState = function(game){
     this.retriveData = 'Player';
     this.restartBtn;
     this.menuBtn;
+    this.headers = null;
     
     this.style = { font: "bold 34px Arial", fill: "#ffffff"}; // highscore header
     this.textStyle = { font: "bold 22px Arial", fill: "#ffffff" }; // highscore and your score
@@ -103,9 +104,9 @@ classState.prototype = {
             currentScore.anchor.setTo(0.5,0.5);
 
 
-            var header = this.add.text(30,270,'Name                      Grad Year    Score',this.textStyle3);
-            header.anchor.setTo(0,0.5);
-
+            this.headers= game.add.sprite(28,270,"NameYearScore");
+            this.headers.anchor.setTo(0,0.5);
+            this.headers.scale.setTo(0.8,0.8)
 
             create(this)
 
@@ -117,28 +118,29 @@ classState.prototype = {
             var y = 295
             for (let i = 0; i < 5; ++i)
 	        {
-            if (i < result.length) {
-            var topName = result[i].name;
-            var topScore =  String(result[i].score);
-            var topYear = result[i].year
-
-            if (topName != null) {
-            var topNameLabel = this1.add.text(15,y,String(i+1)+". "+topName,this1.textStyle2);
-            topNameLabel.anchor.setTo(0, 0.5); }
-
-            if (topYear != null) {
-            var topYearLabel = this1.add.text(190,y,topYear,this1.textStyle2);
-            topYearLabel.anchor.setTo(0, 0.5); }
-
-            if (topScore != null) {
-            var topScoreLabel = this1.add.text(265,y,topScore,this1.textStyle2);
-            topScoreLabel.anchor.setTo(0, 0.5); }
-
-            } else{
-            var topNameLabel = this1.add.text(15,y,String(i+1)+". N/A",this1.textStyle2);
-            topNameLabel.anchor.setTo(0, 0.5);
-            }
-            y += 25
+                if (i < result.length) {
+                    var topName = result[i].name;
+                    var topScore =  String(result[i].score);
+                    var topYear = result[i].year
+                    
+                    if (topName != null) {
+                    var topNameLabel = this1.add.text(15,y,String(i+1)+". "+topName,this1.textStyle2);
+                    topNameLabel.anchor.setTo(0, 0.5); }
+        
+                    if (topYear != null) {
+                    var topYearLabel = this1.add.text(190,y,topYear,this1.textStyle2);
+                    topYearLabel.anchor.setTo(0, 0.5);
+                    }
+        
+                    if (topScore != null) {
+                    var topScoreLabel = this1.add.text(247,y,topScore,this1.textStyle2);
+                    topScoreLabel.anchor.setTo(0, 0.5); }
+        
+                    } else{
+                        var topNameLabel = this1.add.text(15,y,String(i+1)+". N/A",this1.textStyle2);
+                    topNameLabel.anchor.setTo(0, 0.5);
+                    }
+                    y += 25 
         }
         }
     

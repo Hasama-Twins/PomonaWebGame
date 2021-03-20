@@ -6,11 +6,12 @@ var playerInfoState = function(game){
     this.leaveBtn;
     this.playerName = null;
     this.playerYear = null;
+    this.changeNameLabel = null;
     
     this.style = { font: "bold 34px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // highscore header
     this.textStyle = { font: "15px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // highscore and your score
     this.styleTextH = { font: "bold 58px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
-    this.styleTextH2 = { font: "bold 25px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
+    this.styleTextH2 = { font: "bold 25px Arial", fill: '#ffffff', boundsAlignH: "center", boundsAlignV: "middle" };
     this.textStyle2 = { font: "15px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // cloud storage score
     
 };
@@ -29,10 +30,9 @@ playerInfoState.prototype = {
             var changeInfo = this.add.text(this.world.centerX,130,'Enter your information below',this.styleTextH2);
             changeInfo.anchor.setTo(0.5,0.5);
         } else {
-            var changeInfo1 = this.add.text(this.world.centerX,130,'Do you want to change your',this.styleTextH2);
-            changeInfo1.anchor.setTo(0.5,0.5);
-            var changeInfo2 = this.add.text(this.world.centerX,150,'name or graduation year?',this.styleTextH2);
-            changeInfo2.anchor.setTo(0.5,0.5);
+            this.changeNameLabel= game.add.sprite(game.world.centerX,132,'changeNameLabel');
+            this.changeNameLabel.anchor.setTo(0.5,0.5);
+            this.changeNameLabel.scale.setTo(0.8,0.8)
             this.checkYes = this.game.add.button(this.world.centerX-50,190,'checkyes', this.selectYes,this);
             this.checkYes.anchor.setTo(0.5,0.5);
             this.crossNo = this.game.add.button(this.world.centerX+50,190,'crossno', this.selectNo,this);
@@ -125,7 +125,7 @@ playerInfoState.prototype = {
         playerInfoState.leaveBtn = game.add.button(300,game.height-40,'leaveBtn', this.checkInfo , this);
         playerInfoState.leaveBtn.input.useHandCursor = true;
         playerInfoState.leaveBtn.anchor.setTo(0.5,0.5);
-        playerInfoState.leaveBtn.scale.setTo(1.3,1.3);
+        playerInfoState.leaveBtn.scale.setTo(0.6,0.6);
 
     },
 
