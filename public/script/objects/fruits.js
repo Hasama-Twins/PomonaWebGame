@@ -7,7 +7,7 @@ var fruits = function(game){
     this.y = 0;
     this.gemsLoopTime = 15000; // 15s
     this.gemsGroup = null;
-    this.coconutGroup = null; // 5 coconuts
+    this.booksGroup = null; // 9 books total?
     this.levelRank = 'beginner'; // default value
     this.timer_01 = null;
     this.timer_02 = null;
@@ -22,34 +22,41 @@ var fruits = function(game){
 
         create: function(){
      
-            var fruitsArray = new Array('fruit0','fruit1','fruit2','fruit3','fruit4');
-            this.fruitsGroup = game.add.physicsGroup(Phaser.Physics.ARCADE);
+            var shakesArray = new Array('shake0','shake1','shake2');
+            this.shakesGroup = game.add.physicsGroup(Phaser.Physics.ARCADE);
 
-            // total = 15
-            this.fruitsGroup.createMultiple(1,'fruit0',null,false);
-            this.fruitsGroup.createMultiple(1,'fruit1',null,false);
-            this.fruitsGroup.createMultiple(1,'fruit2',null,false);
-            this.fruitsGroup.createMultiple(1,'fruit4',null,false);
-            this.fruitsGroup.createMultiple(1,'fruit3',null,false);
-            this.fruitsGroup.createMultiple(1,'fruit0',null,false);       
-            this.fruitsGroup.createMultiple(1,'fruit2',null,false);
-            this.fruitsGroup.createMultiple(1,'fruit4',null,false);
+            // total = 10
 
-            
-            this.fruitsGroup.callAll('anchor.setTo','anchor',0.5,0.5);
-            this.fruitsGroup.setAll('body.immovable',true);
-            this.fruitsGroup.callAll('body.setSize','body',25,25,0,2);
+            this.shakesGroup.createMultiple(1,'shake0',null,false);
+            this.shakesGroup.createMultiple(1,'shake2',null,false);
+            this.shakesGroup.createMultiple(1,'shake1',null,false);
+            this.shakesGroup.createMultiple(1,'shake0',null,false);
+            this.shakesGroup.createMultiple(1,'shake2',null,false);
+            this.shakesGroup.createMultiple(1,'shake0',null,false);       
+            this.shakesGroup.createMultiple(1,'shake2',null,false);
+            this.shakesGroup.createMultiple(2,'shake1',null,false);
+            this.shakesGroup.createMultiple(1,'shake0',null,false);
+
+            this.shakesGroup.callAll('anchor.setTo','anchor',0.5,0.5);
+            this.shakesGroup.setAll('body.immovable',true);
+            this.shakesGroup.callAll('body.setSize','body',25,25,0,2);
+
             
             this.fruitSound = game.add.audio('fruitGulp',1,false);
             
-            Phaser.ArrayUtils.shuffle(this.fruitsGroup);
-            this.fruitsGroup.updateZ();
+            Phaser.ArrayUtils.shuffle(this.shakesGroup);
+            this.shakesGroup.updateZ();
             
             // gems handle
+            var gemsArray = new Array('coin0','coin1','coin2', 'coin3','coin4','coin5');
             this.gemsGroup = this.game.add.physicsGroup(Phaser.Physics.ARCADE);
-            for(var i=0;i<=7;i++){
-                this.gemsGroup.create(this.game.width/2,this.game.height/2,'gems',i,false);
-            }
+            // total = 6
+            this.gemsGroup.createMultiple(1,'coin0',false);
+            this.gemsGroup.createMultiple(1,'coin2',false);
+            this.gemsGroup.createMultiple(1,'coin1',false);
+            this.gemsGroup.createMultiple(1,'coin3',false);
+            this.gemsGroup.createMultiple(1,'coin4',false);
+            this.gemsGroup.createMultiple(1,'coin5',false);
             
             this.gemsGroup.callAll('anchor.setTo','anchor',0.5,0.5);
             this.gemsGroup.callAll('body.setSize','body',38,40,5,2);
@@ -57,17 +64,26 @@ var fruits = function(game){
             this.gemsGroup.callAll('body.bounce.set','body.bounce',0.6);
             Phaser.ArrayUtils.shuffle(this.gemsGroup);
             this.gemsGroup.updateZ();
-            
-            this.coconutGroup = this.game.add.physicsGroup(Phaser.Physics.ARCADE);
-            this.coconutGroup.createMultiple(5,'coconut',false);
-            this.coconutGroup.callAll('body.setSize','body',35,40,5,2);
-            this.coconutGroup.callAll('body.gravity.set','body.gravity',0,250);
-            this.coconutGroup.callAll('body.bounce.set','body.bounce',0.6);
-            this.coconutGroup.setAll('body.friction','body',0.5);
-            this.coconutGroup.setAll('body.mass','body',2);
-            this.coconutGroup.setAll('body.checkCollision.left',false);
-            this.coconutGroup.setAll('body.checkCollision.right',false);
-            this.coconutGroup.setAll('body.checkCollision.up',false);
+
+            var booksArray = new Array('book0','book1','book2');
+            this.booksGroup = this.game.add.physicsGroup(Phaser.Physics.ARCADE);
+
+            // total = 9
+            this.booksGroup.createMultiple(3,'book0',false);
+            this.booksGroup.createMultiple(3,'book1',false);
+            this.booksGroup.createMultiple(3,'book2',false);
+    
+            //this.booksGroup.createMultiple(5,'coconut',false);
+            this.booksGroup.callAll('body.setSize','body',35,40,5,2);
+            this.booksGroup.callAll('body.gravity.set','body.gravity',0,250);
+            this.booksGroup.callAll('body.bounce.set','body.bounce',0.6);
+            this.booksGroup.setAll('body.friction','body',0.5);
+            this.booksGroup.setAll('body.mass','body',2);
+            this.booksGroup.setAll('body.checkCollision.left',false);
+            this.booksGroup.setAll('body.checkCollision.right',false);
+            this.booksGroup.setAll('body.checkCollision.up',false);
+            Phaser.ArrayUtils.shuffle(this.booksGroup);
+            this.booksGroup.updateZ();
             
             game.time.events.loop(this.gemsLoopTime,this.handleGems,this); // loop to infinity
             //game.time.events.loop(this.cocoLoopTime,this.handleCoconuts,this); // loop to infinity
@@ -82,8 +98,8 @@ var fruits = function(game){
         
         initialFruits: function(){
            var fruit;
-            for(var i=1;i<=15;i++){
-                fruit = this.fruitsGroup.getRandom();
+            for(var i=1;i<=13;i++){
+                fruit = this.shakesGroup.getRandom();
                 var x = game.rnd.integerInRange(20,310);
                 var y = game.rnd.integerInRange(20,400);
                 fruit.reset(x+10,y+30);
@@ -94,7 +110,7 @@ var fruits = function(game){
         handleFruits: function(elem){
             if(elem.y>game.height+game.camera.y){
                 elem.kill();
-                this.fruitsGroup.forEachDead(this.createFruits,this);
+                this.shakesGroup.forEachDead(this.createFruits,this);
             }
 
         },
@@ -105,10 +121,10 @@ var fruits = function(game){
             this.max = game.camera.y+game.height;
             this.y = game.rnd.integerInRange(this.min,this.min-300);
             this.x = game.rnd.integerInRange(20,320);                    
-            Phaser.ArrayUtils.shuffle(this.fruitsGroup);
-            this.fruitsGroup.updateZ();
+            Phaser.ArrayUtils.shuffle(this.shakesGroup);
+            this.shakesGroup.updateZ();
             
-            var tmp = this.fruitsGroup.getFirstDead();
+            var tmp = this.shakesGroup.getFirstDead();
             if(tmp){
                 tmp.reset(this.x,this.y-20);
             }
@@ -135,9 +151,9 @@ var fruits = function(game){
         },
         
         handleCoconuts: function(){
-            var rand = game.rnd.integerInRange(0,3);
+    
           for(var i=0;i<=rand;i++){
-                var coco = this.coconutGroup.getFirstDead();
+                var coco = this.booksGroup.getFirstDead();
                 if(coco){
                 var y = game.world.bounds.y+game.rnd.integerInRange(1500,1800);
                 this.x = game.rnd.integerInRange(30,320);
@@ -162,8 +178,9 @@ var fruits = function(game){
         },
         
         level_01: function(){
- 
-                var coco = this.coconutGroup.getFirstDead();
+
+                var rand = game.rnd.integerInRange(0,13);
+                var coco = this.booksGroup.getRandom();
                 if(coco){
                 var y = game.world.bounds.y+game.rnd.integerInRange(1500,1800);
                 this.x = game.rnd.integerInRange(30,310);
@@ -178,7 +195,7 @@ var fruits = function(game){
               var rand = game.rnd.integerInRange(1,2);
              // var rand = 2;
               for(var i=0;i<=rand;i++){
-                var coco = this.coconutGroup.getFirstDead();
+                var coco = this.booksGroup.getFirstDead();
                 if(coco){
                 var y = game.world.bounds.y+game.rnd.integerInRange(1500,1800);
                 this.x = game.rnd.integerInRange(20,330);
@@ -194,7 +211,7 @@ var fruits = function(game){
             
             var rand = game.rnd.integerInRange(3,4);
               for(var i=0;i<=rand;i++){
-                var coco = this.coconutGroup.getFirstDead();
+                var coco = this.booksGroup.getFirstDead();
                 if(coco){
                 var y = game.world.bounds.y+game.rnd.integerInRange(1500,1800);
                 this.x = game.rnd.integerInRange(20,330);
@@ -222,15 +239,15 @@ var fruits = function(game){
         },
         
         update: function(){
-             this.fruitsGroup.forEachAlive(this.handleFruits,this);
+             this.shakesGroup.forEachAlive(this.handleFruits,this);
              this.gemsGroup.forEachAlive(this.killGems,this);
-             this.coconutGroup.forEachAlive(this.killCoconut,this);
+             this.booksGroup.forEachAlive(this.killCoconut,this);
              
              this.handleDifficulty(this.flag); // manage time event   
         },
 
         render: function(){
-            game.debug.text('fruitGroup countLiving : '+this.fruitsGroup.countLiving(),32,400);
+            game.debug.text('fruitGroup countLiving : '+this.shakesGroup.countLiving(),32,400);
 
         }
     }

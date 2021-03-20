@@ -107,13 +107,13 @@ var leftDuration = 0; // for mobile web game only
             this.fruits.update();
 
             game.global.collideFlag = false; // // checking variable for score tweening.
-    this.physics.arcade.overlap(this.jolly.player,this.fruits.fruitsGroup,this.playerVsFruits,null,this);
+    this.physics.arcade.overlap(this.jolly.player,this.fruits.shakesGroup,this.playerVsFruits,null,this);
 
             // handle score
            // this.gameScore.update();
                        this.physics.arcade.collide(this.platforms.pltGroup,this.fruits.gemsGroup,this.gemsVsPlatform,null,this); // collide with gems
             this.physics.arcade.overlap(this.jolly.player,this.fruits.gemsGroup,this.gemsVsPlayer,null,this); // gems collide with player
-            this.physics.arcade.collide(this.jolly.player,this.fruits.coconutGroup,this.coconutVsPlayer,null,this); // coconut collide with player
+            this.physics.arcade.collide(this.jolly.player,this.fruits.booksGroup,this.coconutVsPlayer,null,this); // coconut collide with player
 
             // game over if 3 life used
             if(this.lifeptr==3){
@@ -185,8 +185,8 @@ var leftDuration = 0; // for mobile web game only
             this.background.bg.kill();
             this.background.cactus.kill();
             this.lifeGroup.destroy();
-            this.fruits.coconutGroup.destroy();
-            this.fruits.fruitsGroup.destroy();
+            this.fruits.booksGroup.destroy();
+            this.fruits.shakesGroup.destroy();
             this.fruits.gemsGroup.destroy();
             this.gameScore.scoreLabel.kill();
             this.pauseButton.kill();
