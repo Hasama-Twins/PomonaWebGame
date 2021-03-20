@@ -56,7 +56,7 @@ var loadState = function(game){
            this.load.image('credit','assets/GUI/credit.png');    
            this.load.image('howtoplay','assets/GUI/howToPlay.png');      
            this.load.spritesheet('sound-sprite','assets/GUI/soundSheet.png',50,50); 
-           this.load.image('title-bg','assets/GUI/title_bg.png');
+           this.load.image('title-bg','assets/GUI/title_bg_new2.png');
            this.load.image('menu-title','assets/GUI/menu-title.png');
            this.load.image('pauseBtn','assets/GUI/pause.png');  // Play.js
            this.load.image('restartBtn','assets/GUI/restart.png');  // leaderboard.js
