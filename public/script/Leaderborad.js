@@ -66,12 +66,12 @@ leaderboardState.prototype = {
             var currentScore = this.add.text(this.world.centerX,190,'Your New Score - '+game.global.score,this.textStyle);
             currentScore.anchor.setTo(0.5,0.5);
             
-            var currentScore = this.add.text(this.world.centerX,240,'Pomona Leaderboard',this.textStyle);
+            var currentScore = this.add.text(this.world.centerX,260,'Pomona Leaderboard',this.textStyle);
             currentScore.anchor.setTo(0.5,0.5);
 
 
             
-           this.headers= game.add.sprite(28,270,"NameYearScore");
+           this.headers= game.add.sprite(28,290,"NameYearScore");
             this.headers.anchor.setTo(0,0.5);
             this.headers.scale.setTo(0.8,0.8)
 
@@ -82,7 +82,7 @@ leaderboardState.prototype = {
             
             result = await getTopScores();
 
-            var y = 295
+            var y = 315
             for (let i = 0; i < 5; ++i)
 	        {
             if (i < result.length) {
