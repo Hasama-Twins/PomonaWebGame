@@ -57,7 +57,7 @@ var loadState = function(game){
            this.load.image('howtoplay','assets/GUI/howToPlay.png');      
            this.load.spritesheet('sound-sprite','assets/GUI/soundSheet.png',50,50); 
            this.load.image('title-bg','assets/GUI/title_bg_new2.png');
-           this.load.image('verify-bg','assets/GUI/verify_bg.png');
+           this.load.image('verify-bg','assets/GUI/verify_bg.png'); // Verify.js 
            this.load.image('menu-title','assets/GUI/menu-title.png');
            this.load.image('pauseBtn','assets/GUI/pause.png');  // Play.js
            this.load.image('restartBtn','assets/GUI/restart.png');  // leaderboard.js
@@ -71,6 +71,10 @@ var loadState = function(game){
            this.load.image('crossno','assets/GUI/quit_.png'); // PlayerInfo.js
            this.load.image('leaveBtn','assets/GUI/leave.png'); // PlayerInfo.js  
            this.load.image('verifyBtn','assets/GUI/verify.png'); // Verify.js 
+
+           this.load.image('player_info_bg','assets/GUI/player_info.png');
+           this.load.image('scoreboard_bg','assets/GUI/scoreboard.png');
+           this.load.image('scoreboard2_bg','assets/GUI/scoreboard2.png');
           
           if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             // true for mobile device
