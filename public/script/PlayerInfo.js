@@ -88,7 +88,7 @@ playerInfoState.prototype = {
             borderWidth: 1,
             borderColor: '#000',
             borderRadius: 4,
-            placeHolder: 'Name',
+            placeHolder: 'Username',
             min: 2,
             max: 20,
             zoom: false,
