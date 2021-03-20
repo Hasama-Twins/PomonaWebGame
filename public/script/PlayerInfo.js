@@ -7,12 +7,13 @@ var playerInfoState = function(game){
     this.playerName = null;
     this.playerYear = null;
     this.changeNameLabel = null;
+    this.player_info_bg = null;
     
-    this.style = { font: "bold 34px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // highscore header
-    this.textStyle = { font: "15px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // highscore and your score
-    this.styleTextH = { font: "bold 58px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
-    this.styleTextH2 = { font: "bold 25px Arial", fill: '#ffffff', boundsAlignH: "center", boundsAlignV: "middle" };
-    this.textStyle2 = { font: "15px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; // cloud storage score
+    this.style = { font: "bold 34px Arial", fill: "#fffff", tabs: [ 100, 300 ] }; // highscore header
+    this.textStyle = { font: "15px Arial", fill: "#fffff", tabs: [ 100, 300 ] }; // highscore and your score
+    this.styleTextH = { font: "bold 58px Arial", fill: "#fffff", boundsAlignH: "center", boundsAlignV: "middle" };
+    this.styleTextH2 = { font: "bold 25px Arial", fill: '#fffff', boundsAlignH: "center", boundsAlignV: "middle" };
+    this.textStyle2 = { font: "15px Arial", fill: "#fffff", tabs: [ 100, 300 ] }; // cloud storage score
     
 };
 
@@ -23,7 +24,10 @@ playerInfoState.prototype = {
         this.game.stage.backgroundColor = '#373F6C';
         game.global.menuBgSound.stop();
         game.add.plugin(PhaserInput.Plugin);
-        this.buildInterface()       
+        
+        this.player_info_bg = game.add.sprite(game.world.centerX,game.world.centerY,'player_info_bg');
+        this.player_info_bg.anchor.setTo(0.5,0.5);
+        this.player_info_bg.scale.setTo(0.45,0.45);
 
         if (localStorage.getItem("playerName") === null) {
             this.selectYes()
@@ -41,42 +45,6 @@ playerInfoState.prototype = {
               
     },
 
-    buildInterface: function(){
-        
-        //User Inteface
-            var bar = this.add.graphics();
-            bar.beginFill(0xf7941d);
-            bar.drawRect(0, 0, this.game.width, 75);
-            bar.endFill();
-    
-            bar.beginFill(0x20438f, 1);
-            bar.drawRect(0, 75, this.game.width, 10);
-            bar.endFill();        
-    
-            bar = this.add.graphics();
-            bar.beginFill(0xfbc98e, 1);
-            bar.drawRect(0, 85, this.game.width, 10);
-            bar.endFill();        
-    
-            var barBottom = this.add.graphics();
-            barBottom.beginFill(0xfbc98e, 1);
-            barBottom.drawRect(0, this.game.height - 100, this.game.width, 95);
-            barBottom.endFill();        
-    
-            barBottom = this.add.graphics();
-            barBottom.beginFill(0x20438f, 1);
-            barBottom.drawRect(0, this.game.height - 90, this.game.width, 90);
-            barBottom.endFill();    
-    
-            barBottom = this.add.graphics();
-            barBottom.beginFill(0xD8fa1c7, 1);
-            barBottom.drawRect(0, this.game.height - 80, this.game.width, 80);
-            barBottom.endFill();
-    
-            scoreText = this.add.text(5, 5, 'Player Info',this.styleTextH); 
-            scoreText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);		    
-            
-        },
 
     setNameAndYear: function(){
         playerInfoState.playerName = game.add.inputField(10, 220, {
