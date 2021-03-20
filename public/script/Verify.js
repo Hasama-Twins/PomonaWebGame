@@ -3,9 +3,10 @@ var verifyState = function(game){
     this.nextBtn;
     this.verifyBtn
     this.verifyCode;
+    this.verifyBg = null;
     
     this.style = { font: "bold 34px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; 
-    this.textStyle = { font: "15px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; 
+    this.textStyle = { font: "13px Arial", fill: "#fffff", tabs: [ 100, 300 ] }; 
     this.styleTextH = { font: "bold 58px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
     this.styleTextH2 = { font: "bold 25px Arial", fill: "#ffffff", boundsAlignH: "center", boundsAlignV: "middle" };
     this.textStyle2 = { font: "15px Arial", fill: "#ffffff", tabs: [ 100, 300 ] }; 
@@ -20,9 +21,13 @@ verifyState.prototype = {
         game.stage.backgroundColor = '#373F6C';
         game.add.plugin(PhaserInput.Plugin);
 
-        var label1 = this.add.text(this.world.centerX,150,'Enter your 4-digit verification code.',this.textStyle);
+        this.verifyBg = game.add.sprite(game.world.centerX,game.world.centerY,'verify-bg');
+        this.verifyBg.anchor.setTo(0.5,0.5);
+        this.verifyBg.scale.setTo(0.45,0.45);
+
+        var label1 = this.add.text(this.world.centerX,165,'Enter your 4-digit verification code.',this.textStyle);
         label1.anchor.setTo(0.5,0.5);
-        var label2 = this.add.text(this.world.centerX,175,'This code can be found in your email inbox.',this.textStyle2);
+        var label2 = this.add.text(this.world.centerX,180,'This code can be found in your email inbox.',this.textStyle);
         label2.anchor.setTo(0.5,0.5);
         this.verifyCode = game.add.inputField(this.world.centerX-60, 200, {
             font: '52px Arial',
