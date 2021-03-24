@@ -51,7 +51,7 @@ var loadState = function(game){
           this.load.image('coin5','assets/coins/coin_P_3.png');// fruit.js && play.js
           
           // load player
-           this.load.spritesheet('jolly','assets/player/transpcecil.png',50,70);
+           this.load.spritesheet('jolly','assets/player/transparentcecil.png',60,70);
           
           // load GUI
            this.load.image('play','assets/GUI/play.png');    
