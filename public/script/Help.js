@@ -15,8 +15,8 @@ var helpState = function(game){
             
                             
     this.backBtn = game.add.button(this.world.centerX-120,game.height-60,'backward',function(){
-this.game.state.start('Menu');
-},this);
+    this.game.state.start('Menu');
+    },this);
         this.backBtn.anchor.setTo(0.4,0.4);
         this.backBtn.input.useHandCursor = true;
             

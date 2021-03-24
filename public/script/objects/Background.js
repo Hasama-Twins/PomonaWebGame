@@ -6,7 +6,18 @@ var background = function(game){
     background.prototype = {
         
         create: function(){
-            this.bg = game.add.sprite(game.world.centerX,game.world.centerY,'background');
+
+            getbg = localStorage.getItem('bg');
+            if (getbg == "night"){
+                this.bg = game.add.sprite(game.world.centerX,game.world.centerY,'night_background');
+            } else if (getbg == "rainbow") {
+                this.bg = game.add.sprite(game.world.centerX,game.world.centerY,'rainbow_background');
+            } else if (getbg == "tree") {
+                this.bg = game.add.sprite(game.world.centerX,game.world.centerY,'tree_background');
+            } else{
+                this.bg = game.add.sprite(game.world.centerX,game.world.centerY,'day_background');
+            }
+            
             this.bg.anchor.setTo(0.5,0.5);
             this.bg.fixedToCamera = true;
             
