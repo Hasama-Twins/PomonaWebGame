@@ -4,6 +4,7 @@ var leaderboardState = function(game){
     this.nextBtn;
     this.headers = null;
     this.scoreboard_bg = null;
+    this.restartBtn;
     
     this.style = { font: "bold 34px Arial", fill: "#fffff"}; // highscore header
     this.textStyle = { font: "bold 22px Arial", fill: "#fffff" }; // highscore and your score
@@ -35,7 +36,13 @@ leaderboardState.prototype = {
     buildInterface: function(){
         
 	//User Inteface
-   
+        this.restartBtn = game.add.button(60,game.height-40,'restartBtn',function(){
+        this.game.state.start('Play');
+        },this);
+
+        this.restartBtn.anchor.setTo(0.5,0.5);
+        this.restartBtn.scale.setTo(0.6,0.6);
+        this.restartBtn.input.useHandCursor = true;
         
         this.nextBtn = game.add.button(300,game.height-40,'nextBtn',function(){
         this.game.state.start('classBoard');
