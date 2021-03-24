@@ -80,14 +80,10 @@ var loadState = function(game){
            this.load.image('scoreboard2_bg','assets/GUI/scoreboard2.png');
 
            this.load.image('changeBgBtn','assets/GUI/change_bg_icon.png'); // Buttons.js
-           this.load.image('yesDayBtn','assets/GUI/yes_day_button.png'); // changeBg.js
-           this.load.image('noDayBtn','assets/GUI/no_day_button.png'); // changeBg.js
-           this.load.image('yesNightBtn','assets/GUI/yes_night_button.png'); // changeBg.js
-           this.load.image('noNightBtn','assets/GUI/no_night_button.png'); // changeBg.js
-           this.load.image('yesRainbowBtn','assets/GUI/yes_rainbow_button.png'); // changeBg.js
-           this.load.image('noRainbowBtn','assets/GUI/no_rainbow_button.png'); // changeBg.js
-           this.load.image('yesTreeBtn','assets/GUI/yes_tree_button.png'); // changeBg.js
-           this.load.image('noTreeBtn','assets/GUI/no_tree_button.png'); // changeBg.js
+           this.load.spritesheet('daybg-sprite','assets/GUI/daybg_sheet.png',200,200); 
+           this.load.spritesheet('nightbg-sprite','assets/GUI/nightbg_sheet.png',200,200); 
+           this.load.spritesheet('treebg-sprite','assets/GUI/treebg_sheet.png',200,200); 
+           this.load.spritesheet('rainbowbg-sprite','assets/GUI/rainbowbg_sheet.png',200,200); 
 
            this.load.image('changebg_bg','assets/GUI/changebg_bg.png');
           
@@ -115,7 +111,7 @@ var loadState = function(game){
           //labels
           this.load.image('changeNameLabel','assets/labels/changeNameLabel.png');
           this.load.image('NameYearScore','assets/labels/NameYearScoreLabel.png');
-      
+          localStorage.setItem('bg',"day");
       },
       
       create: function(){
@@ -124,6 +120,7 @@ var loadState = function(game){
                 console.log('sounds are ready');
                 this.state.start('Verify');
           }, this);
+          
       },
       
       loadUpdate: function(){
