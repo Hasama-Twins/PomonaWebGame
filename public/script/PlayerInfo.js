@@ -34,8 +34,10 @@ playerInfoState.prototype = {
 
         if (localStorage.getItem("playerName") === null) {
             this.selectYes()
-            var changeInfo = this.add.text(this.world.centerX,130,'Enter your information below',this.styleTextH2);
-            changeInfo.anchor.setTo(0.5,0.5);
+            var changeInfo1 = this.add.text(this.world.centerX,130,'Enter your information',this.styleTextH2);
+            changeInfo1.anchor.setTo(0.5,0.5);
+            var changeInfo2 = this.add.text(this.world.centerX,130,'below.',this.styleTextH2);
+            changeInfo2.anchor.setTo(0.5,0.5);
         } else {
             this.changeNameLabel= game.add.sprite(game.world.centerX,132,'changeNameLabel');
             this.changeNameLabel.anchor.setTo(0.5,0.5);
