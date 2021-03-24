@@ -88,6 +88,8 @@ var loadState = function(game){
            this.load.image('noRainbowBtn','assets/GUI/no_rainbow_button.png'); // changeBg.js
            this.load.image('yesTreeBtn','assets/GUI/yes_tree_button.png'); // changeBg.js
            this.load.image('noTreeBtn','assets/GUI/no_tree_button.png'); // changeBg.js
+
+           this.load.image('changebg_bg','assets/GUI/changebg_bg.png');
           
           if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             // true for mobile device
