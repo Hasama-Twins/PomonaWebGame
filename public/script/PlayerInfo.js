@@ -36,7 +36,7 @@ playerInfoState.prototype = {
             this.selectYes()
             var changeInfo1 = this.add.text(this.world.centerX,130,'Enter your information',this.styleTextH2);
             changeInfo1.anchor.setTo(0.5,0.5);
-            var changeInfo2 = this.add.text(this.world.centerX,130,'below.',this.styleTextH2);
+            var changeInfo2 = this.add.text(this.world.centerX,155,'below.',this.styleTextH2);
             changeInfo2.anchor.setTo(0.5,0.5);
         } else {
             this.changeNameLabel= game.add.sprite(game.world.centerX,132,'changeNameLabel');
