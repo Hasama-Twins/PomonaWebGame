@@ -14,6 +14,7 @@ window.onload = function(){
     game.state.add("LeaderBoard",leaderboardState);
     game.state.add("PlayerInfo", playerInfoState);
     game.state.add("classBoard", classState);        
+    game.state.add("changeBgState", changeBgState); 
     
     //define global var
     game.global = {

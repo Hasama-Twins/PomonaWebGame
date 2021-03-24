@@ -75,6 +75,7 @@ var loadState = function(game){
            this.load.image('player_info_bg','assets/GUI/player_info.png');
            this.load.image('scoreboard_bg','assets/GUI/scoreboard.png');
            this.load.image('scoreboard2_bg','assets/GUI/scoreboard2.png');
+           this.load.image('changebg_bg','assets/GUI/changebg_bg.png');
           
           if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             // true for mobile device
