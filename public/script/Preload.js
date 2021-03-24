@@ -24,7 +24,10 @@ var loadState = function(game){
           */
           
           // load all objcet 
-          this.load.image('background','assets/bg.png');
+          this.load.image('day_background','assets/bg.png');
+          this.load.image('night_background','assets/night_bg.png');
+          this.load.image('tree_background','assets/tree_bg.png');
+          this.load.image('rainbow_background','assets/rainbow_bg.png');
           this.load.image('cactus','assets/cactus.png');
           this.load.image('platform','assets/platform.png');
           
@@ -70,11 +73,21 @@ var loadState = function(game){
            this.load.image('checkyes','assets/GUI/yes.png'); // PlayerInfo.js 
            this.load.image('crossno','assets/GUI/quit_.png'); // PlayerInfo.js
            this.load.image('leaveBtn','assets/GUI/leave.png'); // PlayerInfo.js  
-           this.load.image('verifyBtn','assets/GUI/verify.png'); // Verify.js 
+           this.load.image('verifyBtn','assets/GUI/verify.png'); // Verify.js
 
            this.load.image('player_info_bg','assets/GUI/player_info.png');
            this.load.image('scoreboard_bg','assets/GUI/scoreboard.png');
            this.load.image('scoreboard2_bg','assets/GUI/scoreboard2.png');
+
+           this.load.image('changeBgBtn','assets/GUI/change_bg_icon.png'); // Buttons.js
+           this.load.image('yesDayBtn','assets/GUI/yes_day_button.png'); // changeBg.js
+           this.load.image('noDayBtn','assets/GUI/no_day_button.png'); // changeBg.js
+           this.load.image('yesNightBtn','assets/GUI/yes_night_button.png'); // changeBg.js
+           this.load.image('noNightBtn','assets/GUI/no_night_button.png'); // changeBg.js
+           this.load.image('yesRainbowBtn','assets/GUI/yes_rainbow_button.png'); // changeBg.js
+           this.load.image('noRainbowBtn','assets/GUI/no_rainbow_button.png'); // changeBg.js
+           this.load.image('yesTreeBtn','assets/GUI/yes_tree_button.png'); // changeBg.js
+           this.load.image('noTreeBtn','assets/GUI/no_tree_button.png'); // changeBg.js
           
           if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             // true for mobile device
