@@ -57,7 +57,7 @@ playerInfoState.prototype = {
 
         playerInfoState.playerName = game.add.inputField(10, 260, {
             font: '18px Arial',
-            fill: '#20438f',
+            fill: '#fffff',
             fontWeight: 'bold',
             width: 250,
             padding: 6,
@@ -72,7 +72,7 @@ playerInfoState.prototype = {
         });
         playerInfoState.playerYear = game.add.inputField(10, 300, {
             font: '18px Arial',
-            fill: '#20438f',
+            fill: '#fffff',
             fontWeight: 'bold',
             width: 150,
             padding: 6,

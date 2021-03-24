@@ -30,7 +30,7 @@ verifyState.prototype = {
         var label2 = this.add.text(this.world.centerX,180,'This code can be found in your email inbox.',this.textStyle);
         label2.anchor.setTo(0.5,0.5);
         this.verifyCode = game.add.inputField(this.world.centerX-60, 200, {
-            font: '52px Arial',
+            font: '50px Arial',
             fill: '#000000',
             fontWeight: 'bold',
             width: 120,
