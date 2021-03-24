@@ -27,7 +27,7 @@ this.playbtn = game.add.button(game.world.centerX,game.world.centerY,'play',this
         this.creditbtn.anchor.setTo(0.5,0.5);    
         this.creditbtn.input.useHandCursor = true;
         
-        this.muteButton = game.add.button(50,game.height-55,'sound-sprite',this.muteSound,this);
+        this.muteButton = game.add.button(50,game.height-60,'sound-sprite',this.muteSound,this);
         if(game.global.soundPlay){
             this.muteButton.frame = 1;
         }

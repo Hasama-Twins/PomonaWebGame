@@ -8,6 +8,9 @@ var playerInfoState = function(game){
     this.playerYear = null;
     this.changeNameLabel = null;
     this.player_info_bg = null;
+    this.incorrectlabel1 = null;
+    this.incorrectlabel2 = null;
+    this.incorrect;
     
     this.style = { font: "bold 34px Arial", fill: "#fffff", tabs: [ 100, 300 ] }; // highscore header
     this.textStyle = { font: "15px Arial", fill: "#fffff", tabs: [ 100, 300 ] }; // highscore and your score
@@ -47,7 +50,10 @@ playerInfoState.prototype = {
 
 
     setNameAndYear: function(){
-        playerInfoState.playerName = game.add.inputField(10, 220, {
+
+        playerInfoState.incorrect = false;
+
+        playerInfoState.playerName = game.add.inputField(10, 260, {
             font: '18px Arial',
             fill: '#20438f',
             fontWeight: 'bold',
@@ -62,7 +68,7 @@ playerInfoState.prototype = {
             zoom: false,
             type: PhaserInput.InputType.text
         });
-        playerInfoState.playerYear = game.add.inputField(10, 260, {
+        playerInfoState.playerYear = game.add.inputField(10, 300, {
             font: '18px Arial',
             fill: '#20438f',
             fontWeight: 'bold',
@@ -98,11 +104,22 @@ playerInfoState.prototype = {
     },
 
     checkInfo: function(){
-            if (playerInfoState.playerName.value.length < 2 || isNaN(playerInfoState.playerYear.value) || playerInfoState.playerYear.value.length != 4) {
-            } else {
-                localStorage.setItem('playerName',playerInfoState.playerName.value);
-                localStorage.setItem('gradYear',playerInfoState.playerYear.value);   
-                game.state.start('LeaderBoard');
+
+        if (playerInfoState.incorrect) {
+            playerInfoState.incorrectlabel1.destroy()
+            playerInfoState.incorrectlabel2.destroy()
+        }
+        if (playerInfoState.playerName.value.length < 2 || isNaN(playerInfoState.playerYear.value) || playerInfoState.playerYear.value.length != 4) {
+            playerInfoState.incorrectlabel1 = this.add.text(this.world.centerX,400,'Please enter a full username',this.textStyle);
+            playerInfoState.incorrectlabel1.anchor.setTo(0.5,0.5);
+            playerInfoState.incorrectlabel2 = this.add.text(this.world.centerX,425,'and graduation year.',this.textStyle);
+            playerInfoState.incorrectlabel2.anchor.setTo(0.5,0.5);
+            playerInfoState.incorrect = true
+        } else {
+            playerInfoState.incorrect = false
+            localStorage.setItem('playerName',playerInfoState.playerName.value);
+            localStorage.setItem('gradYear',playerInfoState.playerYear.value);   
+            game.state.start('LeaderBoard');
         }
         
     }
