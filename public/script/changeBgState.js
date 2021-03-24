@@ -8,7 +8,7 @@ var changeBgState = function(game){
     this.changeBg_Bg = null;
 };
 
-    menuState.prototype = {
+    changeBgState.prototype = {
         
         create: function(){
             console.log(game.state.getCurrentState());
