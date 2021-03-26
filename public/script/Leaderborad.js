@@ -36,7 +36,7 @@ leaderboardState.prototype = {
     buildInterface: function(){
         
 	//User Inteface
-        this.restartBtn = game.add.button(60,game.height-40,'restartBtn',function(){
+        this.restartBtn = game.add.button(50,game.height-40,'restartBtn',function(){
         this.game.state.start('Play');
         },this);
 

@@ -51,21 +51,10 @@ verifyState.prototype = {
     
     },
 
-    showLeaveButton: function(){
-
-        playerInfoState.nextBtn = game.add.button(300,game.height-40,'nextBtn',function(){
-            game.state.start('Menu');
-        },playerInfoState);
-
-        playerInfoState.nextBtn.anchor.setTo(0.5,0.5);
-        playerInfoState.nextBtn.scale.setTo(0.6,0.6);
-        playerInfoState.nextBtn.input.useHandCursor = true;
-    },
-
     checkCode: function(){
-            if (this.verifyCode.value == "1234") {
+            if (this.verifyCode.value == "1887") {
                 console.log("correct code")
-                this.showLeaveButton()
+                game.state.start('Menu');
             } else {
                 var incorrectlabel = this.add.text(this.world.centerX,300,'Incorrect verification code',this.incorrecttextStyle);
                 incorrectlabel.anchor.setTo(0.5,0.5);
