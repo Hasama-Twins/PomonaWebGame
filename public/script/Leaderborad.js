@@ -52,7 +52,14 @@ leaderboardState.prototype = {
         this.nextBtn.scale.setTo(0.6,0.6);
         this.nextBtn.input.useHandCursor = true;
         
-    },
+    },  
+        toExponent: function(score){
+            if (parseInt(score)>1000000000){
+                return parseInt(score).toExponential(6)
+            } else{
+                return score
+            }
+        },
      
         showScore: function(){
         var playerScore;
@@ -66,11 +73,14 @@ leaderboardState.prototype = {
             else if(game.global.score>localStorage.getItem('highscore')){
                   localStorage.setItem('highscore',game.global.score);        
             }
-                    
-                playerScore = this.add.text(this.world.centerX,150,'Your Highscore - '+localStorage.getItem('highscore'),this.textStyle);
+                var hs = this.toExponent(localStorage.getItem('highscore'))
+                
+                playerScore = this.add.text(this.world.centerX,150,'Your Highscore - '+hs,this.textStyle);
                 playerScore.anchor.setTo(0.5,0.5);
             
-            var currentScore = this.add.text(this.world.centerX,190,'Your New Score - '+game.global.score,this.textStyle);
+            
+            var cs = this.toExponent(String(game.global.score))
+            var currentScore = this.add.text(this.world.centerX,190,'Your New Score - '+cs,this.textStyle);
             currentScore.anchor.setTo(0.5,0.5);
             
             var currentScore = this.add.text(this.world.centerX,260,'Pomona Leaderboard',this.textStyle);
@@ -94,7 +104,13 @@ leaderboardState.prototype = {
 	        {
             if (i < result.length) {
             var topName = result[i].name;
-            var topScore =  String(result[i].score);
+
+            var topScore =  (String(result[i].score));
+            if (parseInt(topScore) > 1000000000){
+                topScore = parseInt(topScore).toExponential(6);
+                
+            }
+            
             var topYear = result[i].year
             
             if (topName != null) {
@@ -107,7 +123,7 @@ leaderboardState.prototype = {
             }
 
             if (topScore != null) {
-            var topScoreLabel = this1.add.text(247,y,topScore,this1.textStyle2);
+            var topScoreLabel = this1.add.text(243,y,topScore,this1.textStyle2);
             topScoreLabel.anchor.setTo(0, 0.5); }
 
             } else{
