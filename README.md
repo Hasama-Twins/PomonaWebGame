@@ -10,6 +10,10 @@ Design & Develop : Shohan ([shohan4556](https://github.com/shohan4556))
 
 Design & Develop : Evelyn & Summer Hasama, Pomona College Office of Advancement, Pomona College Communications Team
 
+## Purpose:
+
+Excite Pomona College alumni participation through this Pomona themed web game featuring Cecil the Sagehen.
+
 ## Modifications:
 -	Added Google Cloud Firebase hosting 
 -	Modified existing leaderboard screen (Leaderborad.js) to hold overall leaderboard
